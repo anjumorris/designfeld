@@ -26,7 +26,6 @@
   <script>
     //Color Palette
     
-    var jerryColor = '#005D90';
     var goodcolor = '#005D90';
     var badcolor = '#903300';
     var basegrey = "#505050";
@@ -58,14 +57,19 @@
     const offset = 20;
 
     // Changes the size of the lollipop head
-    var circleradius = 15;
-    var circlestroke = 3;
+    //var circleradius = 15;
+    //var circlestroke = 3;
 
     // label gap 
-    var labelgap = 5;
+    //var labelgap = 5;
 
+     //Color Palette
+    
+     var jerryColor = '#005D90';
+    
     //Scene selector harcoded now
-    var sceneChoice = "1"; 
+    var sceneChoice = "2";
+    const timeFormatter = "%M:%S";
 
 
 
@@ -80,7 +84,7 @@
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
     // When reading the csv, I must format variables:
     d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/dialog_times_scenetry.csv",function(d){
-      return { start : d3.timeParse("%M:%S")(d.start), end : d3.timeParse("%M:%S")(d.end), speaker : d.speaker, scene : d.scene }
+      return { start : d3.timeParse(timeFormatter)(d.start), end : d3.timeParse(timeFormatter)(d.end), speaker : d.speaker, scene : d.scene }
       },).then(function (data) {
 
       
@@ -126,7 +130,7 @@
         .style("color", "white")
         .style("font-family", "lato")
         .style("font-size", 15)
-        .call(d3.axisLeft(y)) // added format for percentage
+        .call(d3.axisLeft(y).tickFormat(d3.timeFormat(timeFormatter))) // added format for percentage
         .selectAll('text')
         .style("text-anchor", "end")
         .style("color", basegrey)
