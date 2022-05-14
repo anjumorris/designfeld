@@ -1,190 +1,190 @@
 speaker,start,end,speech,scene
-JERRY,0:03,0:04,"Yes, I'm a very lazy eater.",0
-JERRY,0:05,0:26,"That's why I like soup.
+JERRY,00:03,00:04,"Yes, I'm a very lazy eater.",0
+JERRY,00:05,00:26,"That's why I like soup.
 First of all, it looks half-digested......so you feel like half the work
 is done already. I'm hoping Campbell's comes out 
 with an IV line of soup�I'm hoping Campbell's comes out
 with an IV line of soup�...that you could just jam
 right into your arm, you know? Campbell's tomato intravenous. Mainline gumbo. Everyone just sitting around at dinner with their soup IV......hanging on the hook there,
 you know?",0
-JERRY,0:28,0:32,"How's yours, Grandpa? Oh, chunky style.",0
-GEORGE,0:38,0:43,"All right. So, what theatre you wanna go to tonight? We got 61st and 3rd or 84th and Broadway.",1
-JERRY,0:44,0:45,Which one you wanna go to shmoopy?,1
-SHEILA,0:45,0:47,You called me shmoppy. You're a shmoopy.,1
-JERRY,0:47,0:48,You're a shmoopy!,1
-SHEILA,0:47,0:49,You're a shmoopy!,1
-JERRY,0:49,0:51,You're a shmoopy!,1
-GEORGE,0:52,0:55,"All right, shmoopies...what's it gonna be? Pick a theater.",1
-JERRY,0:55,0:57,"Uh,..we'll go to 3rd Avenue. So, can you come with us for lunch to the soup place?",1
-SHEILA,1:00,1:03,No. You have a good lunch. But I'll meet you back here for the movie.,1
-ELAINE,1:03,1:04,Hey.,1
-SHEILA,1:04,1:05,Hi Elaine.,2
-ELAINE,1:05,1:06,Hi Sheila.,2
-JERRY,1:06,1:09,"All right, then. I'll see you later.",2
-SHEILA,1:09,1:10,Bye shmoopy.,2
-JERRY,1:09,1:11,Bye shmoopy.,2
-ELAINE,1:14,1:16,Okay. We ready to go?,2
-GEORGE,1:16,1:19,"Yes. Please. Please, let's go.",2
-ELAINE,1:19,1:20,"Boy, I'm in the mood for a cheeseburger.",2
-JERRY,1:20,1:23,No. We gotta go to the soup place.,2
-ELAINE,1:23,1:24,What soup place?,2
-GEORGE,1:24,1:25,"Oh, there's a soup stand, Kramer's been going there.",2
-JERRY,1:25,1:31,"He's always raving. I finally got a chance to go there the other day, and I tell you this, you will be stunned.",2
-ELAINE,1:31,1:32,Stunned by soup?,2
-JERRY,1:32,1:35,"You can't eat this soup standing up, your knees buckle.",2
-ELAINE,1:35,1:37,Huh. All right. Come on.,2
-JERRY,1:37,1:48,"There's only one caveat -- the guy who runs the place is a little temperamental, especially about the ordering procedure. He's secretly referred to as the Soup Nazi.",3
-ELAINE,1:48,1:50,Why? What happens if you don't order right?,3
-JERRY,1:50,1:52,He yells and you don't get your soup.,3
-ELAINE,1:52,1:53,What?,3
-JERRY,1:53,1:55,Just follow the ordering procedure and you will be fine.,3
-GEORGE,1:55,1:57,All right. All right. Let's - let's go over that again.,3
-JERRY,1:57,2:02,All right. As you walk in the place move immediately to your right.,3
-ELAINE,2:02,2:03,What?,3
-JERRY,2:02,2:04,The main thing is to keep the line moving.,3
-GEORGE,2:04,2:09,"All right. So, you hold out your money, speak your soup in a loud, clear voice, step to the left and receive.",3
-JERRY,2:09,2:15,Right. It's very important not to embellish on your order. No extraneous comments. No questions. No compliments.,3
-ELAINE,2:15,2:16,"Oh, boy, I'm really scared!",3
-JERRY,2:16,2:18,Elaine.,3
-ELAINE,2:18,2:32,"All right. Jerry, that's enough now about the Soup Nazi. Whoa! Wow! Look at this. You know what this is? This is an antique armoire. Wow! It's French. Armoire.",3
-JERRY,2:32,2:33,Ar-moire.,3
-ELAINE,2:33,2:34,How much is this?,3
-FURNITURE GUY,2:34,2:38,"I was asking 250, but you got a nice face. 2 even.",3
-ELAINE,2:40,2:43,"Huh? Ha. 200. You know, I've always wanted one of these things.",3
-JERRY,2:43,2:45,He gave you the nice face discount.,3
-ELAINE,2:45,2:46,Yeah. All right. You guys go ahead.,3
-JERRY,2:47,2:49,What about the soup?,3
-ELAINE,2:49,2:51,"I'm getting an armoire, Jerry.",3
-JERRY,2:51,2:53,[in French accent] Pardon.,3
-GEORGE,2:54,2:55,This line is huge.,3
-JERRY,2:55,2:57,It's like this all the time.,3
-GEORGE,2:57,3:00,Isn't that that Bania guy?,3
-JERRY,3:00,3:03,"Oh, no. It is. Just be still.",3
-GEORGE,3:03,3:06,Whoop! Too late. I think he picked up the scent.,3
-BANIA,3:07,3:09,"Hey, Jerry! I didn't know you liked soup.",3
-JERRY,3:09,3:11,Hard to believe.,3
-BANIA,3:11,3:16,"This guy makes the best soup in the city, Jerry. The best. You know what they call him? Soup Nazi.",3
-JERRY,3:16,3:17,"Shhhhh! All right, Bania, I - I'm not letting you cut in line.",3
-BANIA,3:17,3:20,Why not?,3
-JERRY,3:20,3:22,"Because if he catches us, we'll never be able to get soup again.",3
-BANIA,3:22,3:24,Okay. Okay.,3
-GEORGE,3:34,3:36,Medium turkey chili.,3
-JERRY,3:39,3:41,Medium crab bisque.,3
-GEORGE,3:47,3:48,I didn't get any bread.,3
-JERRY,3:48,3:51,Just forget it. Let it go.,3
-GEORGE,3:53,3:56,"Um, excuse me, I - I think you forgot my bread.",3
-SOUP NAZI,3:56,3:57,Bread -- $2 extra.,3
-GEORGE,3:57,4:00,$2? But everyone in front of me got free bread.,3
-SOUP NAZI,4:00,4:01,You want bread?,3
-GEORGE,4:01,4:02,"Yes, please.",3
-SOUP NAZI,4:02,4:04,$3!,3
-GEORGE,4:04,4:05,What?,3
-SOUP NAZI,4:05,4:06,No soup for you! [snaps fingers],3
-ELAINE,4:17,4:19,What do you mean I can't bring in here? I live here.,3
-SUPER,4:19,4:21,"Its Sunday, Elaine. There's no moving on Sunday. That's the rule.",3
-ELAINE,4:21,4:27,"But I didn't know, Tom. I g -- can't you just make an exception? Please. I've got a nice face.",3
-SUPER,4:28,4:31,"Tomorrow, okay? You can move it in tommorrow. I'll even give you a hand, all right?",3
-ELAINE,4:33,4:35,"Ohh! Well, you're just gonna have to hold this for me.",3
-FURNITURE GUY,4:35,4:37,I'm a guy on the sidewalk. I don't have layaway.,3
-ELAINE,4:37,4:42,"Oh, no...please don't go. Please - please don't walk away.",3
-JERRY,4:44,4:57,"Oh, man. Ohh! This is fantastic. How does he do it?",3
-GEORGE,4:57,5:01,"You know, I don't see how you can sit there eating that and not even offer me any?",3
-JERRY,5:01,5:03,I gave you a taste. What do you want?,3
-GEORGE,5:03,5:05,Why can't we share?,3
-JERRY,5:05,5:10,"I told you not to say anything. You can't go in there, brazenly flaunt the rules and then think I'm gonna share with you!",3
-GEORGE,5:10,5:11,Do you hear yourself?,3
-JERRY,5:11,5:17,I'm sorry. This is what comes from living under a Nazi regime.,3
-GEORGE,5:17,5:20,"Well, I gotta go back there and try again. Hi Sheila.",3
-SHEILA,5:21,5:23,Hi. Hi shmoopy.,3
-JERRY,5:23,5:24,Hi shmoopy.,3
-SHEILA,5:24,5:25,"No, you're a shmoopy!",3
-JERRY,5:25,5:26,You're a shmoopy!,3
-GEORGE,5:26,5:28,I'm going.,3
-JERRY,5:28,5:31,"Hey, listen, so we'll meet you and Susan at the movie tonight?",3
-GEORGE,5:32,5:34,"You know what? I changed my mind. I, uh, I don't think so.",3
-JERRY,5:34,5:35,Why?,3
-GEORGE,5:35,5:37,I just don't feel like it anymore.,3
-JERRY,5:37,5:38,Just like that?,3
-GEORGE,5:38,5:40,Just like that.,3
-SHEILA,5:42,5:44,"Boy, he's a weird guy, isn't he?",3
-KRAMER,5:45,5:46,Hey.,3
-JERRY,5:45,5:46,Hey.,3
-KRAMER,5:50,5:51,[taking Jerry's couch cushion] Yeah.,3
-JERRY,5:51,5:54,Hey. Hey. Hey. Hey. Hey. Hey. Hey. Wha -- what are you doing?,3
-KRAMER,5:54,6:00,"Yeah. Elaine, she has to leave her armoire on the street all night...I'm gonna guard it for her. I need something to sit on.",3
-JERRY,6:00,6:02,"Well, sit on one of your couch cushions.",3
-KRAMER,6:02,6:11,"Yeah, but this is so nice and thick. Ahoy there!",3
-ELAINE,6:11,6:15,"Oh, Kramer! Thank God. I really appreciate you doing this.",3
-KRAMER,6:15,6:17,"Yeah. Well, you ask for it, you got it.",3
-ELAINE,6:17,6:19,Do you need anything?,3
-KRAMER,6:19,6:21,"Well, a bowl of muligatawny would hit the spot.",3
-ELAINE,6:22,6:23,Mulligatawny?,3
-KRAMER,6:23,6:28,Yeah. It's an Indian soup. It's simmered to perfection by one of the great soup artisans in the modern era.,3
-ELAINE,6:29,6:31,Oh! Who? The Soup Nazi?,3
-KRAMER,6:31,6:36,He's not a Nazi. He just happens to be a little eccentric. Most geniuses are.,3
-ELAINE,6:37,6:38,All right. I'll be back.,3
-KRAMER,6:38,6:39,Wait a second. You don't even know how to order.,3
-ELAINE,6:39,6:41,"Oh, no. No. No. No. I got it.",3
-KRAMER,6:41,6:42,"No. No, Elaine!",3
-ELAINE,6:42,6:43,"Hey, I got it.",3
-ELAINE,6:50,6:53,Hey. Didn't you already get soup?,3
-GEORGE,6:53,6:55,No. I didn't get it.,3
-ELAINE,6:55,6:57,Why? What happened?,3
-GEORGE,6:57,6:59,I made a mistake.,3
-ELAINE,6:58,7:01,[laughing],3
-GEORGE,7:00,7:02,"All right. Well, we'll see what happens to you.",3
-ELAINE,7:02,7:07,"Yeah. No. Listen, George, I am quite certain I'm walking out of there with a bowl of soup.",3
-GEORGE,7:07,7:12,"Yeah. Hey, let ask you something. Is it just me, or - or do you find it unbearable to be around Jerry and that girl?",3
-ELAINE,7:12,7:15,"Oh, I know! It is awful!",3
-GEORGE,7:15,7:17,Why do they have to do that in front of people?,3
-ELAINE,7:17,7:18,I don't know.,3
-GEORGE,7:18,7:19,What is that with the shmoopy?,3
-ELAINE,7:19,7:20,Ohh!,3
-GEORGE,7:19,7:21,"The shmoopy, shmoopy, shmoopy, shmmopy, shmoopy!",3
-ELAINE,7:19,7:21,Ohh! Stop it! I know.,3
-GEORGE,7:21,7:25,I had to listen to a five minute discussion on which one is actually called shmoopy.,3
-ELAINE,7:24,7:25,Ugh!,3
-GEORGE,7:25,7:27,And I cancelled plans to go to the movies with them tonight.,3
-ELAINE,7:27,7:29,"You know, we should say something.",3
-GEORGE,7:29,7:30,"You know, we absolutely should.",3
-ELAINE,7:30,7:33,"I mean, why does he do that? Doesn't he know what a huge turnoff that is?",3
-GEORGE,7:33,7:35,I don't know. He can be so weird sometimes.,3
-ELAINE,7:34,7:35,Yeah.,3
-GEORGE,7:35,7:37,I still haven't figured him out.,3
-ELAINE,7:36,7:37,No. Me neither.,3
-GEORGE,7:37,7:39,All right. Shh! I gotta focus. I'm shifting into soup mode.,3
-ELAINE,7:40,7:41,"Oh, God!",3
-GEORGE,7:47,8:02,Good afternoon. One large crab bisque to go. Bread. Beautiful.,3
-SOUP NAZI,8:02,8:05,You're pushing your luck little man.,3
-GEORGE,8:08,8:11,Sorry. Thank you.,3
-ELAINE,8:11,8:24,"Hi there. Um, uh -- [drumming on countertop] Oh! Oh! Oh! One mulligatawny and, um....what is that right there? Is that lima bean?",3
-SOUP NAZI,8:24,8:25,Yes.,3
-ELAINE,8:25,8:41,"Never been a big fan. [coughing] Um..you know what? Has anyone ever told you you look exactly like Al Pacino? You know, "" Scent Of A Woman."" Who-ah! Who-ah!",3
-SOUP NAZI,8:41,8:42,Very good. Very good.,3
-ELAINE,8:41,8:42,"Well, I --",3
-SOUP NAZI,8:42,8:45,You know something?,3
-ELAINE,8:45,8:46,Hmmm?,3
-SOUP NAZI,8:45,8:46,No soup for you!,3
-ELAINE,8:46,8:47,What?,3
-SOUP NAZI,8:46,8:47,Come back one year! Next!,3
-RAY,8:51,8:53,Look at this.,3
-BOB,8:53,8:54,It's an antique.,3
-RAY,8:54,8:57,It's all hand made and I love the in-lay.,3
-BOB,8:57,9:05,"Yes. Yes. me, too. Ay, it's gorgeous. Completely. Pick it up. No. No. Pick it up from the bottom over there.",3
-KRAMER,9:03,9:05,Wait. Wait. Wait. Wait. What are you doing?,3
-BOB,9:05,9:08,What does it look like we're doing? We're taking this.,3
-KRAMER,9:08,9:11,You can't take this. This belongs to a friend of mine.,3
-BOB,9:11,9:12,"Look, you wanna get hurt?",3
-KRAMER,9:12,9:13,Huh?,3
-BOB,9:13,9:18,"I don't think you wanna get hurt. Because if you wanna get hurt I can hurt you. Now, just back off.",3
-RAY,9:18,9:19,Bob.,3
-BOB,9:19,9:20,Just pick it up.,3
-KRAMER,9:20,9:22,"What is this, huh?",3
-BOB,9:22,9:29,You have some kind of problem here? What is it you not understanding? We taking the armoire and that's all there is to it. Okay?,3
-ELAINE,9:39,9:44,"I mean, is he allowed to do this? It's discrimination! I'm gonna call the states' attorney office. I really am.",3
-GEORGE,9:44,9:47,"Oh, this is fabulous. My God Elaine, you have to taste this.",3
-ELAINE,9:47,9:49,All right. All right. Give me a taste.,3
-ELAINE,9:53,9:56,"Mmm! Oh God, I gotta sit down. What happened? Where's my armoire?",3
+JERRY,00:28,00:32,"How's yours, Grandpa? Oh, chunky style.",0
+GEORGE,00:38,00:43,"All right. So, what theatre you wanna go to tonight? We got 61st and 3rd or 84th and Broadway.",1
+JERRY,00:44,00:45,Which one you wanna go to shmoopy?,1
+SHEILA,00:45,00:47,You called me shmoppy. You're a shmoopy.,1
+JERRY,00:47,00:48,You're a shmoopy!,1
+SHEILA,00:47,00:49,You're a shmoopy!,1
+JERRY,00:49,00:51,You're a shmoopy!,1
+GEORGE,00:52,00:55,"All right, shmoopies...what's it gonna be? Pick a theater.",1
+JERRY,00:55,00:57,"Uh,..we'll go to 3rd Avenue. So, can you come with us for lunch to the soup place?",1
+SHEILA,01:00,01:03,No. You have a good lunch. But I'll meet you back here for the movie.,1
+ELAINE,01:03,01:04,Hey.,1
+SHEILA,01:04,01:05,Hi Elaine.,2
+ELAINE,01:05,01:06,Hi Sheila.,2
+JERRY,01:06,01:09,"All right, then. I'll see you later.",2
+SHEILA,01:09,01:10,Bye shmoopy.,2
+JERRY,01:09,01:11,Bye shmoopy.,2
+ELAINE,01:14,01:16,Okay. We ready to go?,2
+GEORGE,01:16,01:19,"Yes. Please. Please, let's go.",2
+ELAINE,01:19,01:20,"Boy, I'm in the mood for a cheeseburger.",2
+JERRY,01:20,01:23,No. We gotta go to the soup place.,2
+ELAINE,01:23,01:24,What soup place?,2
+GEORGE,01:24,01:25,"Oh, there's a soup stand, Kramer's been going there.",2
+JERRY,01:25,01:31,"He's always raving. I finally got a chance to go there the other day, and I tell you this, you will be stunned.",2
+ELAINE,01:31,01:32,Stunned by soup?,2
+JERRY,01:32,01:35,"You can't eat this soup standing up, your knees buckle.",2
+ELAINE,01:35,01:37,Huh. All right. Come on.,2
+JERRY,01:37,01:48,"There's only one caveat -- the guy who runs the place is a little temperamental, especially about the ordering procedure. He's secretly referred to as the Soup Nazi.",3
+ELAINE,01:48,01:50,Why? What happens if you don't order right?,3
+JERRY,01:50,01:52,He yells and you don't get your soup.,3
+ELAINE,01:52,01:53,What?,3
+JERRY,01:53,01:55,Just follow the ordering procedure and you will be fine.,3
+GEORGE,01:55,01:57,All right. All right. Let's - let's go over that again.,3
+JERRY,01:57,02:02,All right. As you walk in the place move immediately to your right.,3
+ELAINE,02:02,02:03,What?,3
+JERRY,02:02,02:04,The main thing is to keep the line moving.,3
+GEORGE,02:04,02:09,"All right. So, you hold out your money, speak your soup in a loud, clear voice, step to the left and receive.",3
+JERRY,02:09,02:15,Right. It's very important not to embellish on your order. No extraneous comments. No questions. No compliments.,3
+ELAINE,02:15,02:16,"Oh, boy, I'm really scared!",3
+JERRY,02:16,02:18,Elaine.,3
+ELAINE,02:18,02:32,"All right. Jerry, that's enough now about the Soup Nazi. Whoa! Wow! Look at this. You know what this is? This is an antique armoire. Wow! It's French. Armoire.",3
+JERRY,02:32,02:33,Ar-moire.,3
+ELAINE,02:33,02:34,How much is this?,3
+FURNITURE GUY,02:34,02:38,"I was asking 250, but you got a nice face. 2 even.",3
+ELAINE,02:40,02:43,"Huh? Ha. 200. You know, I've always wanted one of these things.",3
+JERRY,02:43,02:45,He gave you the nice face discount.,3
+ELAINE,02:45,02:46,Yeah. All right. You guys go ahead.,3
+JERRY,02:47,02:49,What about the soup?,3
+ELAINE,02:49,02:51,"I'm getting an armoire, Jerry.",3
+JERRY,02:51,02:53,[in French accent] Pardon.,3
+GEORGE,02:54,02:55,This line is huge.,3
+JERRY,02:55,02:57,It's like this all the time.,3
+GEORGE,02:57,03:00,Isn't that that Bania guy?,3
+JERRY,03:00,03:03,"Oh, no. It is. Just be still.",3
+GEORGE,03:03,03:06,Whoop! Too late. I think he picked up the scent.,3
+BANIA,03:07,03:09,"Hey, Jerry! I didn't know you liked soup.",3
+JERRY,03:09,03:11,Hard to believe.,3
+BANIA,03:11,03:16,"This guy makes the best soup in the city, Jerry. The best. You know what they call him? Soup Nazi.",3
+JERRY,03:16,03:17,"Shhhhh! All right, Bania, I - I'm not letting you cut in line.",3
+BANIA,03:17,03:20,Why not?,3
+JERRY,03:20,03:22,"Because if he catches us, we'll never be able to get soup again.",3
+BANIA,03:22,03:24,Okay. Okay.,3
+GEORGE,03:34,03:36,Medium turkey chili.,3
+JERRY,03:39,03:41,Medium crab bisque.,3
+GEORGE,03:47,03:48,I didn't get any bread.,3
+JERRY,03:48,03:51,Just forget it. Let it go.,3
+GEORGE,03:53,03:56,"Um, excuse me, I - I think you forgot my bread.",3
+SOUP NAZI,03:56,03:57,Bread -- $2 extra.,3
+GEORGE,03:57,04:00,$2? But everyone in front of me got free bread.,3
+SOUP NAZI,04:00,04:01,You want bread?,3
+GEORGE,04:01,04:02,"Yes, please.",3
+SOUP NAZI,04:02,04:04,$3!,3
+GEORGE,04:04,04:05,What?,3
+SOUP NAZI,04:05,04:06,No soup for you! [snaps fingers],3
+ELAINE,04:17,04:19,What do you mean I can't bring in here? I live here.,3
+SUPER,04:19,04:21,"Its Sunday, Elaine. There's no moving on Sunday. That's the rule.",3
+ELAINE,04:21,04:27,"But I didn't know, Tom. I g -- can't you just make an exception? Please. I've got a nice face.",3
+SUPER,04:28,04:31,"Tomorrow, okay? You can move it in tommorrow. I'll even give you a hand, all right?",3
+ELAINE,04:33,04:35,"Ohh! Well, you're just gonna have to hold this for me.",3
+FURNITURE GUY,04:35,04:37,I'm a guy on the sidewalk. I don't have layaway.,3
+ELAINE,04:37,04:42,"Oh, no...please don't go. Please - please don't walk away.",3
+JERRY,04:44,04:57,"Oh, man. Ohh! This is fantastic. How does he do it?",3
+GEORGE,04:57,05:01,"You know, I don't see how you can sit there eating that and not even offer me any?",3
+JERRY,05:01,05:03,I gave you a taste. What do you want?,3
+GEORGE,05:03,05:05,Why can't we share?,3
+JERRY,05:05,05:10,"I told you not to say anything. You can't go in there, brazenly flaunt the rules and then think I'm gonna share with you!",3
+GEORGE,05:10,05:11,Do you hear yourself?,3
+JERRY,05:11,05:17,I'm sorry. This is what comes from living under a Nazi regime.,3
+GEORGE,05:17,05:20,"Well, I gotta go back there and try again. Hi Sheila.",3
+SHEILA,05:21,05:23,Hi. Hi shmoopy.,3
+JERRY,05:23,05:24,Hi shmoopy.,3
+SHEILA,05:24,05:25,"No, you're a shmoopy!",3
+JERRY,05:25,05:26,You're a shmoopy!,3
+GEORGE,05:26,05:28,I'm going.,3
+JERRY,05:28,05:31,"Hey, listen, so we'll meet you and Susan at the movie tonight?",3
+GEORGE,05:32,05:34,"You know what? I changed my mind. I, uh, I don't think so.",3
+JERRY,05:34,05:35,Why?,3
+GEORGE,05:35,05:37,I just don't feel like it anymore.,3
+JERRY,05:37,05:38,Just like that?,3
+GEORGE,05:38,05:40,Just like that.,3
+SHEILA,05:42,05:44,"Boy, he's a weird guy, isn't he?",3
+KRAMER,05:45,05:46,Hey.,3
+JERRY,05:45,05:46,Hey.,3
+KRAMER,05:50,05:51,[taking Jerry's couch cushion] Yeah.,3
+JERRY,05:51,05:54,Hey. Hey. Hey. Hey. Hey. Hey. Hey. Wha -- what are you doing?,3
+KRAMER,05:54,06:00,"Yeah. Elaine, she has to leave her armoire on the street all night...I'm gonna guard it for her. I need something to sit on.",3
+JERRY,06:00,06:02,"Well, sit on one of your couch cushions.",3
+KRAMER,06:02,06:11,"Yeah, but this is so nice and thick. Ahoy there!",3
+ELAINE,06:11,06:15,"Oh, Kramer! Thank God. I really appreciate you doing this.",3
+KRAMER,06:15,06:17,"Yeah. Well, you ask for it, you got it.",3
+ELAINE,06:17,06:19,Do you need anything?,3
+KRAMER,06:19,06:21,"Well, a bowl of muligatawny would hit the spot.",3
+ELAINE,06:22,06:23,Mulligatawny?,3
+KRAMER,06:23,06:28,Yeah. It's an Indian soup. It's simmered to perfection by one of the great soup artisans in the modern era.,3
+ELAINE,06:29,06:31,Oh! Who? The Soup Nazi?,3
+KRAMER,06:31,06:36,He's not a Nazi. He just happens to be a little eccentric. Most geniuses are.,3
+ELAINE,06:37,06:38,All right. I'll be back.,3
+KRAMER,06:38,06:39,Wait a second. You don't even know how to order.,3
+ELAINE,06:39,06:41,"Oh, no. No. No. No. I got it.",3
+KRAMER,06:41,06:42,"No. No, Elaine!",3
+ELAINE,06:42,06:43,"Hey, I got it.",3
+ELAINE,06:50,06:53,Hey. Didn't you already get soup?,3
+GEORGE,06:53,06:55,No. I didn't get it.,3
+ELAINE,06:55,06:57,Why? What happened?,3
+GEORGE,06:57,06:59,I made a mistake.,3
+ELAINE,06:58,07:01,[laughing],3
+GEORGE,07:00,07:02,"All right. Well, we'll see what happens to you.",3
+ELAINE,07:02,07:07,"Yeah. No. Listen, George, I am quite certain I'm walking out of there with a bowl of soup.",3
+GEORGE,07:07,07:12,"Yeah. Hey, let ask you something. Is it just me, or - or do you find it unbearable to be around Jerry and that girl?",3
+ELAINE,07:12,07:15,"Oh, I know! It is awful!",3
+GEORGE,07:15,07:17,Why do they have to do that in front of people?,3
+ELAINE,07:17,07:18,I don't know.,3
+GEORGE,07:18,07:19,What is that with the shmoopy?,3
+ELAINE,07:19,07:20,Ohh!,3
+GEORGE,07:19,07:21,"The shmoopy, shmoopy, shmoopy, shmmopy, shmoopy!",3
+ELAINE,07:19,07:21,Ohh! Stop it! I know.,3
+GEORGE,07:21,07:25,I had to listen to a five minute discussion on which one is actually called shmoopy.,3
+ELAINE,07:24,07:25,Ugh!,3
+GEORGE,07:25,07:27,And I cancelled plans to go to the movies with them tonight.,3
+ELAINE,07:27,07:29,"You know, we should say something.",3
+GEORGE,07:29,07:30,"You know, we absolutely should.",3
+ELAINE,07:30,07:33,"I mean, why does he do that? Doesn't he know what a huge turnoff that is?",3
+GEORGE,07:33,07:35,I don't know. He can be so weird sometimes.,3
+ELAINE,07:34,07:35,Yeah.,3
+GEORGE,07:35,07:37,I still haven't figured him out.,3
+ELAINE,07:36,07:37,No. Me neither.,3
+GEORGE,07:37,07:39,All right. Shh! I gotta focus. I'm shifting into soup mode.,3
+ELAINE,07:40,07:41,"Oh, God!",3
+GEORGE,07:47,08:02,Good afternoon. One large crab bisque to go. Bread. Beautiful.,3
+SOUP NAZI,08:02,08:05,You're pushing your luck little man.,3
+GEORGE,08:08,08:11,Sorry. Thank you.,3
+ELAINE,08:11,08:24,"Hi there. Um, uh -- [drumming on countertop] Oh! Oh! Oh! One mulligatawny and, um....what is that right there? Is that lima bean?",3
+SOUP NAZI,08:24,08:25,Yes.,3
+ELAINE,08:25,08:41,"Never been a big fan. [coughing] Um..you know what? Has anyone ever told you you look exactly like Al Pacino? You know, "" Scent Of A Woman."" Who-ah! Who-ah!",3
+SOUP NAZI,08:41,08:42,Very good. Very good.,3
+ELAINE,08:41,08:42,"Well, I --",3
+SOUP NAZI,08:42,08:45,You know something?,3
+ELAINE,08:45,08:46,Hmmm?,3
+SOUP NAZI,08:45,08:46,No soup for you!,3
+ELAINE,08:46,08:47,What?,3
+SOUP NAZI,08:46,08:47,Come back one year! Next!,3
+RAY,08:51,08:53,Look at this.,3
+BOB,08:53,08:54,It's an antique.,3
+RAY,08:54,08:57,It's all hand made and I love the in-lay.,3
+BOB,08:57,09:05,"Yes. Yes. me, too. Ay, it's gorgeous. Completely. Pick it up. No. No. Pick it up from the bottom over there.",3
+KRAMER,09:03,09:05,Wait. Wait. Wait. Wait. What are you doing?,3
+BOB,09:05,09:08,What does it look like we're doing? We're taking this.,3
+KRAMER,09:08,09:11,You can't take this. This belongs to a friend of mine.,3
+BOB,09:11,09:12,"Look, you wanna get hurt?",3
+KRAMER,09:12,09:13,Huh?,3
+BOB,09:13,09:18,"I don't think you wanna get hurt. Because if you wanna get hurt I can hurt you. Now, just back off.",3
+RAY,09:18,09:19,Bob.,3
+BOB,09:19,09:20,Just pick it up.,3
+KRAMER,09:20,09:22,"What is this, huh?",3
+BOB,09:22,09:29,You have some kind of problem here? What is it you not understanding? We taking the armoire and that's all there is to it. Okay?,3
+ELAINE,09:39,09:44,"I mean, is he allowed to do this? It's discrimination! I'm gonna call the states' attorney office. I really am.",3
+GEORGE,09:44,09:47,"Oh, this is fabulous. My God Elaine, you have to taste this.",3
+ELAINE,09:47,09:49,All right. All right. Give me a taste.,3
+ELAINE,09:53,09:56,"Mmm! Oh God, I gotta sit down. What happened? Where's my armoire?",3
 ELAINE,10:03,10:05,"Mmm! Oh God, I gotta sit down. What happened? Where's my armoire?",3
 KRAMER,10:05,10:06,"Well, b -- it was stolen.",3
 ELAINE,10:05,10:06,Wha--?,3
