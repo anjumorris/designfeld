@@ -11,25 +11,22 @@
 </head>
 
 <body>
-  <h1>Divergent Opinions on Transatlantic Alliance</h1>
-  <h2> Americans and Germans were asked: How would you rate the current relationship between Germany and the United
-    States?</h2>
+  <h1>Scene Details</h1>
+  <h2> Scene X:</h2>
   <br>
 
   <!-- Main div containing the visual-->
   <div id="my_dataviz"></div>
 
-  <!-- Prepared image showing the legend-->
-  <p style="text-align:center;">
-    <img src="https://raw.githubusercontent.com/anjumorris/sample/main/legend.png" alt="legend"
-      style="width:730px;height:85px;">
-  </p>
+  
+  
   <h3>A one-sided love affair: Americans see the relationship in good standing ... but the Germans do not! </h3>
   <h3>Americans tend to be more undecided in their opinions.</h3>
 
   <!--D3 starts here-->
   <script>
     //Color Palette
+    
     var goodcolor = '#005D90';
     var badcolor = '#903300';
     var basegrey = "#505050";
@@ -54,8 +51,8 @@
 
     // set the dimensions and margins of the graph
     const margin = { top: 30, right: 250, bottom: 30, left: 120 },
-      width = 1400 - margin.left - margin.right,
-      height = 480 - margin.top - margin.bottom;
+      width = 2500 - margin.left - margin.right,
+      height = 800 - margin.top - margin.bottom;
 
     // Offset for the two countries from center point
     const offset = 20;
@@ -77,13 +74,13 @@
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
-    d3.csv("https://raw.githubusercontent.com/anjumorris/sample/main/AllianceDataFinal.csv").then(function (data) {
+    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/dialog_times.csv").then(function (data) {
 
 
       // X axis 
       const x = d3.scaleBand()
         .range([0, width])
-        .domain(data.map(function (d) { return d.Year; }))
+        .domain(data.map(function (d) {d.speaker;}))
         .padding(1);
       svg.append("g")
         .attr("transform", `translate(0, ${height})`)
@@ -115,7 +112,7 @@
         .style("font-size", 15);
 
       //Change here for y axis font change 
-
+      /*
       // Zero divider line
       svg.append('line')
         .attr('x1', x(0))
@@ -125,8 +122,8 @@
         .attr('stroke', dividercolor)
         .attr('stroke-width', 5)
         .attr('stroke-opacity', 0.5);
-
-
+      */
+      /*
       // Text Good Opinion
       svg.append("text") //right side
         .text("Good Opinion")
@@ -338,7 +335,7 @@
           else {
             return badcolor;
           }
-        })
+        }) */
       })
 
 
