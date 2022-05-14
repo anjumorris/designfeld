@@ -27,6 +27,7 @@
   <script>
     //Color Palette
     
+    var jerryColor = '#005D90';
     var goodcolor = '#005D90';
     var badcolor = '#903300';
     var basegrey = "#505050";
@@ -64,6 +65,10 @@
     // label gap 
     var labelgap = 5;
 
+    //Scene selector harcoded now
+    var sceneChoice = 1; 
+
+
 
     // append the svg object to the body of the page
     const svg = d3.select("#my_dataviz")
@@ -74,9 +79,13 @@
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
-    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/dialog_times.csv").then(function (data) {
+    // When reading the csv, I must format variables:
+    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/dialog_times_scenetry.csv",function(d){
+      return { start : d3.timeParse("%M:%S")(d.start), end : d3.timeParse("%M:%S")(d.end), speaker : d.speaker, scene : d.scene }
+      },).then(function (data) {
 
-
+      
+    
       // X axis 
       const x = d3.scaleBand()
         .range([0, width])
@@ -104,15 +113,21 @@
 
 
       // Add Y axis
-      const y = d3.scaleLinear()
-        .domain([-1, 1])
+      const y = d3.scaleTime()
+        //.domain(["00:35","01:05"])
+        .domain(d3.extent(data, function(d) {
+          if(d.scene==="1")
+          {
+            return d.start;
+          }
+          }))
         .range([height, 0]);
 
       svg.append("g")
         .style("color", "white")
         .style("font-family", "lato")
         .style("font-size", 15)
-        .call(d3.axisLeft(y).tickFormat(d3.format('~%'))) // added format for percentage
+        .call(d3.axisLeft(y)) // added format for percentage
         .selectAll('text')
         .style("text-anchor", "end")
         .style("color", basegrey)
