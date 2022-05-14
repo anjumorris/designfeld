@@ -63,12 +63,15 @@
     // label gap 
     //var labelgap = 5;
 
-     //Color Palette
     
-     var jerryColor = '#005D90';
+    // ------Mynew Variables start here
+    
+    //Color Palette
+    
+    var jerryColor = '#005D90';
     
     //Scene selector harcoded now
-    var sceneChoice = "2";
+    var sceneChoice = "1";
     const timeFormatter = "%M:%S";
 
 
@@ -106,7 +109,7 @@
         .attr("transform", `translate(0, ${height})`)
         .style("color", basegrey) // change here for axis line and tick style
         .style("stroke-width", 0)
-        .call(d3.axisTop().scale(x))
+        .call(d3.axisBottom().scale(x))
         .selectAll("text")
         .attr("transform", "translate(10,10)rotate(0)")
         .style("text-anchor", "end")
@@ -121,10 +124,10 @@
         .domain(d3.extent(data, function(d) {
           if(d.scene===sceneChoice)
           {
-            return d.start;
+            return d.start,d.end;
           }
           }))
-        .range([height, 0]);
+        .range([0,height]);
 
       svg.append("g")
         .style("color", "white")
@@ -135,20 +138,79 @@
         .style("text-anchor", "end")
         .style("color", basegrey)
         .style("font-family", "lato")
-        .style("font-size", 15);
+        .style("font-size", 15); //Change here for y axis font change 
 
-      //Change here for y axis font change 
-      /*
+      const parseTime = d3.timeParse("%M:%S");  
       // Zero divider line
+      
+      /*
       svg.append('line')
-        .attr('x1', x(0))
-        .attr('x2', width)
-        .attr('y1', y(0))
-        .attr('y2', y(0))
+        .attr('x1', x("JERRY"))
+        .attr('x2', x("JERRY"))
+        .attr('y1', y(parseTime("00:55")))
+        .attr('y2', y(parseTime("00:45")))
         .attr('stroke', dividercolor)
-        .attr('stroke-width', 5)
-        .attr('stroke-opacity', 0.5);
-      */
+        .attr('stroke-width', 4)
+        .attr('stroke-opacity', 1);
+        */
+    
+      //Lines for lollipops stems
+      
+      svg.selectAll("myline1")
+        .data(data)
+        .enter()
+        .append("line")
+        .attr("x1", function (d) { 
+          if(d.scene===sceneChoice)
+          {
+            if (d.speaker ==="JERRY" || d.speaker ==="ELAINE" || d.speaker ==="GEORGE" || d.speaker ==="KRAMER" ) 
+            {
+              return x(d.speaker);
+            }
+            else
+            {
+              return x("OTHER");
+            }
+          }
+          })
+        .attr("x2", function (d) { 
+          if(d.scene===sceneChoice)
+          {
+            if (d.speaker ==="JERRY" || d.speaker ==="ELAINE" || d.speaker ==="GEORGE" || d.speaker ==="KRAMER" ) 
+            {
+              return x(d.speaker);
+            }
+            else
+            {
+              return x("OTHER");
+            }
+          }
+          })
+        .attr("y1", function (d) { 
+          if(d.scene===sceneChoice)
+          {
+            return y(d.start);
+          }
+          })
+        .attr("y2", function (d) { 
+          if(d.scene===sceneChoice)
+          {
+            return y(d.end);
+          }
+          })
+        .attr("stroke-width", 4)
+        .attr('stroke-opacity', 0.6)
+        .attr("stroke", function (d) {
+          if (d.speaker === "JERRY") {
+            return jerryColor;
+          }
+          else {
+            return badcolor;
+          }
+        })
+        
+      
+      
       /*
       // Text Good Opinion
       svg.append("text") //right side
