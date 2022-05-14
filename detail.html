@@ -20,8 +20,7 @@
 
   
   
-  <h3>A one-sided love affair: Americans see the relationship in good standing ... but the Germans do not! </h3>
-  <h3>Americans tend to be more undecided in their opinions.</h3>
+  
 
   <!--D3 starts here-->
   <script>
@@ -66,7 +65,7 @@
     var labelgap = 5;
 
     //Scene selector harcoded now
-    var sceneChoice = 1; 
+    var sceneChoice = "1"; 
 
 
 
@@ -116,7 +115,7 @@
       const y = d3.scaleTime()
         //.domain(["00:35","01:05"])
         .domain(d3.extent(data, function(d) {
-          if(d.scene==="1")
+          if(d.scene===sceneChoice)
           {
             return d.start;
           }
