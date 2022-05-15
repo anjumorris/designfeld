@@ -11,16 +11,13 @@
 </head>
 
 <body>
-  <h1>Scene Details</h1>
-  <h2> Scene X:</h2>
+  <h2>Scene Details</h2>
+  <h3 id="my_scene"></h3>
   <br>
 
   <!-- Main div containing the visual-->
   <div id="my_dataviz"></div>
 
-  
-  
-  
 
   <!--D3 starts here-->
   <script>
@@ -43,25 +40,11 @@
       .style('color', basegrey)
       .style("font-family", "lato");
 
-    //Changes the writeup text
-    d3.selectAll('h3')
-      .style('color', basegrey)
-      .style("font-family", "lato");
 
     // set the dimensions and margins of the graph
-    const margin = { top: 30, right: 250, bottom: 30, left: 120 },
-      width = 2500 - margin.left - margin.right,
-      height = 800 - margin.top - margin.bottom;
-
-    // Offset for the two countries from center point
-    const offset = 20;
-
-    // Changes the size of the lollipop head
-    //var circleradius = 15;
-    //var circlestroke = 3;
-
-    // label gap 
-    //var labelgap = 5;
+    const margin = { top: 60, right: 60, bottom: 60, left: 60 },
+      width = 600 - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom;
 
     
     // ------Mynew Variables start here
@@ -69,9 +52,16 @@
     //Color Palette
     
     var jerryColor = '#005D90';
+    var elaineColor = '#F081BE';
+    var kramerColor = '#EB711F';
+    var georgeColor = "#F2F53D";
+    var otherColor = '#90F5DC';
+
+    var basegrey = "#505050";
+    var undecidedcolor = "E4E6E7";
     
     //Scene selector harcoded now
-    var sceneChoice = "2";
+    var sceneChoice = "11";
     const timeFormatter = "%M:%S";
 
 
@@ -87,11 +77,31 @@
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
     // When reading the csv, I must format variables:
     d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfield_data.csv",function(d){
-      return { start : d3.timeParse(timeFormatter)(d.start), end : d3.timeParse(timeFormatter)(d.end), speaker : d.speaker, scene_marker : d.scene_marker,
-      time_stamp :d3.timeParse(timeFormatter)(d.time_stamp), laughter :d.laughter }
+      return { start : d3.timeParse(timeFormatter)(d.start), end : d3.timeParse(timeFormatter)(d.end), 
+      speaker : d.speaker, scene_marker : d.scene_marker,
+      time_stamp :d3.timeParse(timeFormatter)(d.time_stamp), laughter :d.laughter, 
+      scene_index : d.scene_index, scene_desc :d.scene_desc }
       },).then(function (data) {
 
       
+      
+      //Scene Description    
+      d3.select("#my_scene")
+        .style('color', basegrey)
+        .style("font-family", "lato")
+        .data(data)
+        .enter()
+        .append('text')
+        .text(function (d) {
+          if (d.scene_index === sceneChoice){
+          return "Scene " + sceneChoice + ": "+ d.scene_desc;
+       }
+       })
+       .style('color', basegrey)
+       .style("font-family", "lato")
+       .style("font-size", 15);
+        
+        
     
       // X axis 
       const x = d3.scaleBand()
@@ -116,7 +126,7 @@
         .style("text-anchor", "end")
         .style("color", basegrey)
         .style("font-family", "lato")
-        .style("font-size", 15); // change here for axis marking (year)
+        .style("font-size", 12); // change here for axis marking (year)
 
 
       // Add Y axis
@@ -133,29 +143,16 @@
       svg.append("g")
         .style("color", "white")
         .style("font-family", "lato")
-        .style("font-size", 15)
-        .call(d3.axisLeft(y).tickFormat(d3.timeFormat(timeFormatter))) // added format for percentage
+        .style("font-size", 12)
+        .call(d3.axisLeft(y).tickFormat(d3.timeFormat(timeFormatter))) // added format for time
         .selectAll('text')
         .style("text-anchor", "end")
         .style("color", basegrey)
         .style("font-family", "lato")
-        .style("font-size", 15); //Change here for y axis font change 
+        .style("font-size", 12); //Change here for y axis font change 
 
       const parseTime = d3.timeParse("%M:%S");  
-      // Zero divider line
       
-      /*
-      svg.append('line')
-        .attr('x1', x("JERRY"))
-        .attr('x2', x("JERRY"))
-        .attr('y1', y(parseTime("00:55")))
-        .attr('y2', y(parseTime("00:45")))
-        .attr('stroke', dividercolor)
-        .attr('stroke-width', 4)
-        .attr('stroke-opacity', 1);
-        */
-    
-      //Lines for lollipops stems
       
       svg.selectAll("myline1")
         .data(data)
@@ -199,17 +196,27 @@
             return y(d.end);
           }
           })
-        .attr("stroke-width", 4)
-        .attr('stroke-opacity', 0.6)
+        .attr("stroke-width", 10)
+      
         .attr("stroke", function (d) {
           if (d.speaker === "JERRY") {
             return jerryColor;
           }
+          else if(d.speaker === "ELAINE"){
+            return elaineColor;
+          }
+          else if(d.speaker === "KRAMER"){
+            return kramerColor;
+          }
+          else if(d.speaker === "GEORGE"){
+            return georgeColor;
+          }
           else {
-            return badcolor;
+            return otherColor;
           }
         })
-        
+      
+
       
       
       /*
