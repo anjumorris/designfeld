@@ -71,7 +71,7 @@
     var jerryColor = '#005D90';
     
     //Scene selector harcoded now
-    var sceneChoice = "1";
+    var sceneChoice = "2";
     const timeFormatter = "%M:%S";
 
 
@@ -86,8 +86,9 @@
 
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
     // When reading the csv, I must format variables:
-    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/dialog_times_scenetry.csv",function(d){
-      return { start : d3.timeParse(timeFormatter)(d.start), end : d3.timeParse(timeFormatter)(d.end), speaker : d.speaker, scene : d.scene }
+    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfield_data.csv",function(d){
+      return { start : d3.timeParse(timeFormatter)(d.start), end : d3.timeParse(timeFormatter)(d.end), speaker : d.speaker, scene_marker : d.scene_marker,
+      time_stamp :d3.timeParse(timeFormatter)(d.time_stamp), laughter :d.laughter }
       },).then(function (data) {
 
       
@@ -122,7 +123,7 @@
       const y = d3.scaleTime()
         //.domain(["00:35","01:05"])
         .domain(d3.extent(data, function(d) {
-          if(d.scene===sceneChoice)
+          if(d.scene_marker===sceneChoice)
           {
             return d.start,d.end;
           }
@@ -161,7 +162,7 @@
         .enter()
         .append("line")
         .attr("x1", function (d) { 
-          if(d.scene===sceneChoice)
+          if(d.scene_marker===sceneChoice)
           {
             if (d.speaker ==="JERRY" || d.speaker ==="ELAINE" || d.speaker ==="GEORGE" || d.speaker ==="KRAMER" ) 
             {
@@ -174,7 +175,7 @@
           }
           })
         .attr("x2", function (d) { 
-          if(d.scene===sceneChoice)
+          if(d.scene_marker===sceneChoice)
           {
             if (d.speaker ==="JERRY" || d.speaker ==="ELAINE" || d.speaker ==="GEORGE" || d.speaker ==="KRAMER" ) 
             {
@@ -187,13 +188,13 @@
           }
           })
         .attr("y1", function (d) { 
-          if(d.scene===sceneChoice)
+          if(d.scene_marker===sceneChoice)
           {
             return y(d.start);
           }
           })
         .attr("y2", function (d) { 
-          if(d.scene===sceneChoice)
+          if(d.scene_marker===sceneChoice)
           {
             return y(d.end);
           }
