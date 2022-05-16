@@ -23,6 +23,8 @@ function mainChars(toCheck) {
     return ["JERRY", "ELAINE", "GEORGE", "KRAMER"].includes(toCheck);
 }
 
+var wheelScene = 1;
+
 var mouseover = function (i, scene) {
     if (typeof scene === 'undefined') {
       return;
@@ -108,6 +110,7 @@ var wheelclick = function(i, scene) {
         return;
     }
 
+    wheelScene = scene.scene;
     seinfeld.currentTime(sceneToTimestamp.get(parseInt(scene.scene)));
     seinfeld.play();
 
