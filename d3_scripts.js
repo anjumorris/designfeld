@@ -138,7 +138,7 @@
 
 
       //tooltip stuff
-      var Tooltip = d3.select("#my_dataviz")
+      var Tooltip = d3.select("#tooltip_wrapper")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")

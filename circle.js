@@ -13,6 +13,7 @@ var colors = {
     svg = d3.select("#speakers");
     grayed = false,
     selectedScene = 0,
+    topNegativeMargin = -50;
     parse = d3.timeParse('%M:%S'),
     t = d3.scaleTime()
         .domain(d3.extent([parse(epStartTime), parse(epEndTime)]))
@@ -112,7 +113,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .data(sceneData)
         .enter()
         .append("path")
-        .attr("transform", "translate(500,600)")
+        .attr("transform", 'translate(500,' + (600 + topNegativeMargin) + ')')
         .attr('opacity', 0)
         .attr("d", d3.arc()
             .innerRadius( 250 )
@@ -133,7 +134,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .data(sceneData)
         .enter()
         .append("path")
-        .attr("transform", "translate(500,600)")
+        .attr("transform", 'translate(500,' + (600 + topNegativeMargin) + ')')
         .attr('opacity', 0.5)
         .attr("d", d3.arc()
             .innerRadius(function(d) { return d.start == '0:00' ? 300 : 350; })
@@ -160,21 +161,21 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .attr('id', 'scene_intro_content')
         .attr('font-size', '40')
         .attr("x", 390)
-        .attr("y", 510)
+        .attr("y", 510 + topNegativeMargin)
         .style("fill", "black"))
         .call(g => g.append("text")
         .style("font-family", "lato")
         .text('Hover over a section of the wheel')
         .attr('id', 'scene_intro_content')
         .attr("x", 390)
-        .attr("y", 550)
+        .attr("y", 550 + topNegativeMargin)
         .style("fill", "black"))
         .call(g => g.append("text")
         .style("font-family", "lato")
         .text('and click to see more information')
         .attr('id', 'scene_intro_content')
         .attr("x", 390)
-        .attr("y", 570)
+        .attr("y", 570 + topNegativeMargin)
         .style("fill", "black"))
 
     svg.append("g")
@@ -194,7 +195,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .attr('id', 'scene_metadata_title')
         .attr('font-size', '40')
         .attr("x", 390)
-        .attr("y", 510)
+        .attr("y", 510 + topNegativeMargin)
         .style("fill", "black"))
         .call(g => g.append("text")
         .style("font-family", "lato")
@@ -202,14 +203,14 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .attr('id', 'scene_metadata_name')
         .attr('font-size', '24')
         .attr("x", 390)
-        .attr("y", 550)
+        .attr("y", 550 + topNegativeMargin)
         .style("fill", "black"))
         .call(g => g.append("text")
         .style("font-family", "lato")
         .text('')
         .attr('id', 'scene_metadata_times')
         .attr("x", 390)
-        .attr("y", 570)
+        .attr("y", 570 + topNegativeMargin)
         .style("fill", "black"))
 
     svg.append("g")
@@ -221,7 +222,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .attr('id', 'ep_start_time')
         .attr('font-size', '12')
         .attr("x", 510)
-        .attr("y", 75)
+        .attr("y", 75 + topNegativeMargin)
         .style("fill", "black"))
         .call(g => g.append("text")
         .style("font-family", "lato")
@@ -229,7 +230,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .attr('id', 'ep_end_time')
         .attr('font-size', '12')
         .attr("x", 420)
-        .attr("y", 100)
+        .attr("y", 90 + topNegativeMargin)
         .style("fill", "black"))
 
     svg.append("g")
@@ -237,7 +238,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .call(g => g.append('image')
         .attr('id', 'scene_thumb')
         .attr('x', 350)
-        .attr('y', 600)
+        .attr('y', 600 + topNegativeMargin)
         .attr('width', 320)
         .attr('height', 180)
         .attr('xlink:href', '/scene_thumbs/scene_1.png'))
@@ -263,30 +264,11 @@ d3.csv("/speakers.csv", function (d) {
         .endAngle(t(parse(d.end)) * cEnd)
     }
   }).then(function (data) {
-    // var parse = d3.timeParse('%M:%S');
-
-    // const t = d3.scaleTime()
-    //     .domain(d3.extent([parse(epStartTime), parse(epEndTime)]))
-    //     .range([0, 1]);
-
-
-    var arcs = {};
-    // data.forEach(function(d) {
-    //     var split = d.start.split(':');
-    //         arcs[d.speaker.toLowerCase() + '_' + split[0] + "m" + split[1] + "s"] = 
-    //             d3.arc()
-    //             .innerRadius( 400 )
-    //             .outerRadius( 450 )
-    //             .startAngle(function(d) { return t(parse(d.start)) * cEnd; })
-    //             .endAngle(function(d) { return t(parse(d.end)) * cEnd; });
-    // });
-// d3.arc();
-    // Create rings for all characters
     svg.selectAll()
         .data(data)
         .enter()
         .append("path")
-        .attr("transform", "translate(500,600)")
+        .attr("transform", 'translate(500,' + (600 + topNegativeMargin) + ')')
         .attr('opacity', 1)
         .attr("d", d3.arc()
             .innerRadius( 400 )
@@ -322,104 +304,30 @@ d3.csv("/speakers.csv", function (d) {
         .append('label');
 
     labels.append("input")
-    .attr("type", "checkbox")
-    .attr('checked', true)
-    .attr("name", function(d) { return d; })
-    .attr("value", function(d) { return d.toLowerCase(); })
-    .on("change", change)
-    // .filter(function(d, i) { return !i; })
-    // .each(change)
-    // .property("checked", true);
-
+        .attr("type", "checkbox")
+        .attr('checked', true)
+        .attr("name", function(d) { return d; })
+        .attr("value", function(d) { return d.toLowerCase(); })
+        .style('accent-color', function(d) { return colors[d.toLowerCase()]; })
+        .on("change", change)
+    
     labels.append('span')
         .text(function(d) { return d; })
+    
+    labels.append('img')
+        .attr('id', function(d) { return 'avatar_' + d.toLowerCase(); })
+        .attr('x', 350)
+        .attr('y', 600 + topNegativeMargin)
+        .attr('width', 80)
+        .attr('height', 80)
+        .attr('src', function(d) { return '/avatars/' + d.toLowerCase() + '2.PNG'; })
     
     function change(region) {
         svg.selectAll('.' + region.target.value)
             .transition()
             .duration(600)
             .attr('opacity', region.target.checked ? 1 : 0)
-        // var newarc = d3.arc()
-        //     .innerRadius(350)
-        //     .outerRadius(400);
-        // var jerrys = svg.selectAll('.jerry');
-        // jerrys.enter()
-        // jerrys.attr('d', function() { 
-        //     return d3.select(this).attr('d');
-        // } )
-        // newj = d3.select('#jerry_0m05s')
-        //     .outerRadius(600);
-        // for (var id in arcs) {
-        //     arcs[id].outerRadius(600);
-        // }
-        //['jerry_0m05s'].outerRadius(600);
-        // d3.select('#jerry_0m05s')
-        //     .transition()
-        //     .duration(2000)
-        //     .attr('d', arcs['jerry_0m05s'])
-        // d3.selectAll('.jerry')
-        //     .data(data)
-        //     .enter()
-        //     .attr("d", function(d) { return d.shortR; })
-        // jerrys.forEach(function(j) {
-            // jerrys.outerRadius(400);
-        // });
-        // d3.selectAll('.jerry')
-        //     .transition()
-        //     .duration(2000)
-        //     .attr('d', )
-        // .innerRadius(350)
-            // .attr('d', newarc);
-
-        //     .attr('opacity', 0)
-            // .transition()
-            // .duration(2000)
-            // .attr('d', 300)
     }
-
-
-// Find the element in data0 that joins the highest preceding element in data1.
-function findPreceding(i, data0, data1, key) {
-  var m = data0.length;
-  while (--i >= 0) {
-    var k = key(data1[i]);
-    for (var j = 0; j < m; ++j) {
-      if (key(data0[j]) === k) return data0[j];
-    }
-  }
-}
-
-// Find the element in data0 that joins the lowest following element in data1.
-function findFollowing(i, data0, data1, key) {
-  var n = data1.length, m = data0.length;
-  while (++i < n) {
-    var k = key(data1[i]);
-    for (var j = 0; j < m; ++j) {
-      if (key(data0[j]) === k) return data0[j];
-    }
-  }
-}
-
-function arcTween(d) {
-
-  var i = d3.interpolate(this._current, d);
-
-  this._current = i(0);
-
-  return function(t) {
-    return arc(i(t))
-  }
-
-}
-
-
-function cloneObj(obj) {
-  var o = {};
-  for(var i in obj) {
-    o[i] = obj[i];
-  }
-  return o;
-}
 })
 
 // CLICKING OFF THE WHEEL
@@ -442,7 +350,7 @@ d3.csv("/laughs.csv").then(function(laughData) {
         .data(laughData)
         .enter()
         .append("path")
-        .attr("transform", "translate(500,600)")
+        .attr("transform", 'translate(500,' + (600 + topNegativeMargin) + ')')
         .attr('opacity', 1)
         .attr("d", d3.arc()
             .innerRadius( 455 )

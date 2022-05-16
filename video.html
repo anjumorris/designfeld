@@ -6,32 +6,39 @@
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
+  <h1>Seinfeld Season 7 Episode 6</h1>
+  <h4>"The Soup Nazi"</h4>
+  <p>Laughter and Dialog by Scene</p>
   <div class="container-fluid">
-    <div class="row row-cols-3">
-      <div class="col-sm" id="main">
+    <div class="row">
+      <!-- Circle -->
+      <div class="col-xxl-7" id="main">
         <svg id="speakers"></svg>
+        <div id="character_picker_wrapper">
+          <form id="character_picker"></form>
+        </div>
       </div>
-      <div class="col-sm mt-12" id="my_dataviz"></div>
-    </div>
-    <div class="row">
-      <div class="col-6"></div>
-      <div class="col-6">
-        <video id="seinfeld" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
-          <source src="s07.mp4" type="video/mp4" />
-          <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a
-            web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-          </p>
-        </video>
+      <!-- Right Sidebar -->
+      <div class="col-xxl-5">
+        <div id="my_dataviz">
+        </div>
+        <div id="tooltip_wrapper"></div>
+        <h3 id="my_scene"></h3>
+        <div id="video_wrapper">
+          <video id="seinfeld" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
+            <source src="s07.mp4" type="video/mp4" />
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+          </video>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <h3 id="my_scene"></h3>
-      <form id="character_picker"></form>
     </div>
   </div>
 

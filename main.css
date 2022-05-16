@@ -1,5 +1,6 @@
 body {
-    font-family: "Microsoft Yi Baiti", sans-serif;
+    font-family: "Lato", sans-serif;
+    margin: 40px 60px;
 }
 
 #top, h3 {
@@ -24,11 +25,32 @@ h2 {
 }
 
 #character_picker {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#character_picker label {
+    margin-right: 60px;
+    min-width: 60px;
 }
 
 #character_picker input {
-    position: absolute;
+    /* accent-color: #9b59b6; */
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+#character_picker span {
+    font-size: 24px;
+}
+
+#character_picker img {
+    display: block;
+    border-radius: 16px;
+}
+
+.tooltip {
+    min-height: 140px;
 }
