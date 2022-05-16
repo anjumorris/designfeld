@@ -13,8 +13,8 @@ var colors = {
     svg = d3.select("#speakers");
     grayed = false,
     selectedScene = 0,
-    parse = d3.timeParse('%M:%S');
-    const t = d3.scaleTime()
+    parse = d3.timeParse('%M:%S'),
+    t = d3.scaleTime()
         .domain(d3.extent([parse(epStartTime), parse(epEndTime)]))
         .range([0, 1]);
 
@@ -26,9 +26,6 @@ var mouseover = function (i, scene) {
     if (typeof scene === 'undefined') {
       return;
     }
-
-    seinfeld.currentTime(sceneToTimestamp.get(parseInt(scene.scene)));
-    seinfeld.play();
 
     d3.select(this)
         .transition()
@@ -94,6 +91,9 @@ var wheelclick = function(i, scene) {
     if (typeof scene === 'undefined') {
         return;
     }
+
+    seinfeld.currentTime(sceneToTimestamp.get(parseInt(scene.scene)));
+    seinfeld.play();
 
     grayed = true;
     selectedScene = scene.scene;
@@ -422,6 +422,7 @@ function cloneObj(obj) {
 }
 })
 
+// CLICKING OFF THE WHEEL
 d3.select('body').on('click', function(e) {
     triggersEvent = Array.from(e.target.classList).some(function(toCheck) {
         return ['speech', 'scene', 'scene_divider'].includes(toCheck);
@@ -431,5 +432,33 @@ d3.select('body').on('click', function(e) {
             .style('filter', 'saturate(1)')
             .attr('opacity', 1)
         grayed = false;
+        seinfeld.pause();
     }
+});
+
+// LAUGHS
+d3.csv("/laughs.csv").then(function(laughData) {
+    svg.selectAll()
+        .data(laughData)
+        .enter()
+        .append("path")
+        .attr("transform", "translate(500,600)")
+        .attr('opacity', 1)
+        .attr("d", d3.arc()
+            .innerRadius( 455 )
+            .outerRadius(function(d) { return 455 + (d.laughter * 15); })
+            .startAngle(function(d) { return t(parse(d.time_stamp)) * cEnd; }) // keep for thick laughter
+            // .startAngle(function(d) { return (t(parse(d.time_stamp)) + 0.0005) * cEnd; }) // thin laughter
+            .endAngle(function(d) {
+                var date = new Date(parse(d.time_stamp));
+                date.setSeconds(date.getSeconds() + 1);
+                // return t(date) * cEnd; // thin laughter
+                return (t(date) + 0.0005) * cEnd; // keep for thick laughter
+            })
+        )
+        .attr('id', function(d) {
+            return 'laugh_' + d.time_index; // id="scene_2"
+        })
+        .attr('class', 'laugh')
+        .attr('fill', '#FFCC33')
 });
