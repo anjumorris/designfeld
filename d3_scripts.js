@@ -34,14 +34,14 @@
 
 
     //Scene selector harcoded now
-    var sceneChoice = "2";
-    const timeFormatter = "%M:%S";
+    var sceneChoice = "1";
+    // const timeFormatter = "%M:%S";
     
 
 
 
-    // append the svg object to the body of the page
-    const svg = d3.select("#my_dataviz")
+    // append the svgLine object to the body of the page
+    const svgLine = d3.select("#my_dataviz")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -94,7 +94,7 @@
         }
         ))
         .padding(1);
-      svg.append("g")
+      svgLine.append("g")
         .attr("transform", `translate(0, ${height})`)
         .style("color", basegrey) // change here for axis line and tick style
         .style("stroke-width", 0)
@@ -125,7 +125,7 @@
         .domain([startPoint[0],endPoint[1]])
         .range([0, height]);
 
-      svg.append("g")
+      svgLine.append("g")
         .style("color", "white")
         .style("font-family", "lato")
         .style("font-size", 12)
@@ -198,7 +198,7 @@
       
       //laughter scale
 
-      svg.selectAll()
+      svgLine.selectAll()
         .data(data)
         .enter()
         .append("line")
@@ -253,7 +253,7 @@
 
 
       // Render the dashed lines
-      svg.selectAll()
+      svgLine.selectAll()
         .data(data)
         .enter()
         .append("line")

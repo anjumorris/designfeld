@@ -25,6 +25,9 @@ var mouseover = function (i, scene) {
       return;
     }
 
+    seinfeld.currentTime(sceneToTimestamp.get(parseInt(scene.scene)));
+    seinfeld.play();
+
     d3.select(this)
         .transition()
         .duration(300)

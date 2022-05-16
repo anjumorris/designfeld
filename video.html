@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
@@ -10,10 +9,16 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
+    <div class="row row-cols-3">
+      <div class="col-sm" id="main">
+        <svg id="speakers"></svg>
+      </div>
+      <div class="col-sm mt-12" id="my_dataviz"></div>
+    </div>
     <div class="row">
-      <div class="col-6" id="my_dataviz"></div>
-      <div class="col-3">
+      <div class="col-6"></div>
+      <div class="col-6">
         <video id="seinfeld" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
           <source src="s07.mp4" type="video/mp4" />
           <p class="vjs-no-js">
@@ -26,16 +31,15 @@
     </div>
     <div class="row">
       <h3 id="my_scene"></h3>
-      <input id="scene_selector" type="number">
+      <form id="character_picker"></form>
     </div>
-    <!-- Main div containing the visual-->
-
   </div>
-
 
   <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
   <script src="video_scripts.js"></script>
   <script src="d3_scripts.js"></script>
+  <script src="circle.js"></script>
+
 </body>
 
 </html>
