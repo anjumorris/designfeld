@@ -11,7 +11,9 @@ var colors = {
     epEndTime = '22:49', // end of episode
     cEnd = 6.28, // end/top of circle
     svg = d3.select("#speakers");
-    var parse = d3.timeParse('%M:%S');
+    grayed = false,
+    selectedScene = 0,
+    parse = d3.timeParse('%M:%S');
     const t = d3.scaleTime()
         .domain(d3.extent([parse(epStartTime), parse(epEndTime)]))
         .range([0, 1]);
@@ -63,6 +65,12 @@ var mouseover = function (i, scene) {
 
     svg.select('#scene_thumb')
         .attr('xlink:href', '/scene_thumbs/scene_' + scene.scene + '.png')
+
+    if (grayed) {
+        d3.selectAll('.scene_' + scene.scene)
+            .style('filter', 'saturate(1)')
+            .attr('opacity', 1)
+    }
 }
 
 var mouseleave = function (i, scene) {
@@ -74,6 +82,27 @@ var mouseleave = function (i, scene) {
         .transition()
         .duration(100)
         .attr('opacity', 0)
+
+    if (grayed) {
+        d3.selectAll('.scene_' + scene.scene + ':not(.scene_' + selectedScene + ')')
+            .style('filter', 'saturate(0)')
+            .attr('opacity', 0.5)
+    }
+}
+
+var wheelclick = function(i, scene) {
+    if (typeof scene === 'undefined') {
+        return;
+    }
+
+    grayed = true;
+    selectedScene = scene.scene;
+
+    d3.selectAll('.speech:not(.scene_' + scene.scene + ')')
+        .transition()
+        .duration(600)
+        .style('filter', 'saturate(0)')
+        .attr('opacity', 0.5)
 }
 
 svg.attr("width", 1000).attr("height", 1100);
@@ -98,6 +127,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .attr('fill', '#808080')
         .on('mouseover', mouseover)
         .on('mouseleave', mouseleave)
+        .on('click', wheelclick)
 
     svg.selectAll()
         .data(sceneData)
@@ -219,7 +249,7 @@ d3.csv("/speakers.csv", function (d) {
         start: d.start,
         end: d.end,
         speaker: d.speaker,
-        scene_marker: d.scene_marker, speech: d.speech,
+        scene_marker: d.scene_marker,
         speech: d.speech,
         shortR: d3.arc()
         .innerRadius( 350 )
@@ -272,9 +302,9 @@ d3.csv("/speakers.csv", function (d) {
         })
         .attr('class', function(d) {
             if (mainChars(d.speaker)) {
-                return d.speaker.toLowerCase(); // class="jerry"
+                return d.speaker.toLowerCase() + ' speech scene_' + d.scene_marker; // class="jerry"
             } else {
-                return d.speaker.toLowerCase() + ' other';
+                return d.speaker.toLowerCase() + ' other speech scene_' + d.scene_marker;
             }
         })
         .attr('fill', function(d) {
@@ -284,21 +314,6 @@ d3.csv("/speakers.csv", function (d) {
                 return colors['other'];
             }
         })
-    // svg.selectAll('.jerry')
-    //     .attr('opacity', 0)
-
-    // svg.select('.jerry')
-    // .data(data)
-    // .enter()
-    // .attr("d", function(d) { return d.shortR; })
-
-
-
-
-
-
-
-
 
     var labels = d3.select("#character_picker")
         .selectAll()
@@ -406,3 +421,15 @@ function cloneObj(obj) {
   return o;
 }
 })
+
+d3.select('body').on('click', function(e) {
+    triggersEvent = Array.from(e.target.classList).some(function(toCheck) {
+        return ['speech', 'scene', 'scene_divider'].includes(toCheck);
+    });
+    if (!triggersEvent && grayed) {
+        d3.selectAll('.speech')
+            .style('filter', 'saturate(1)')
+            .attr('opacity', 1)
+        grayed = false;
+    }
+});
