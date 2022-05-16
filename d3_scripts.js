@@ -16,9 +16,6 @@
       width = 550 - margin.left - margin.right,
       height = 700 - margin.top - margin.bottom;
 
-
-    // ------Mynew Variables start here
-
     //Color Palette
 
     var jerryColor = '#005D90';
@@ -34,7 +31,7 @@
     
     var dividercolor = '#707070';
     var basegrey = "#505050";
-    var undecidedcolor = "E4E6E7";
+
 
     //Scene selector harcoded now
     var sceneChoice = "2";
@@ -53,7 +50,7 @@
 
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
     // When reading the csv, I must format variables:
-    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_data_timestamp_trial.csv", function (d) {
+    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_data_final.csv", function (d) {
       return {
         start: d3.timeParse(timeFormatter)(d.start), end: d3.timeParse(timeFormatter)(d.end),
         speaker: d.speaker, scene_marker: d.scene_marker, speech: d.speech,
