@@ -50,11 +50,13 @@
     var georgeColor = "#F2F53D";
     var otherColor = '#90F5DC';
 
+    
+    var dividercolor = '#707070';
     var basegrey = "#505050";
     var undecidedcolor = "E4E6E7";
 
     //Scene selector harcoded now
-    var sceneChoice = "2";
+    var sceneChoice = "5";
     const timeFormatter = "%M:%S";
 
 
@@ -218,41 +220,38 @@
       }
 
       //laughter scale
-/*
-      svg.selectAll("myRect")
+
+      svg.selectAll()
         .data(data)
         .enter()
-        .append("rect")
-        .attr("x", x(0))
-        .attr("y", function (d) {
-          if(d.scene_marker === sceneChoice)
+        .append("line")
+        .attr("x1", x("OTHER"))
+        .attr("x2", x("OTHER"))
+        .attr("y1", function (d){
+          if (d.scene_marker === sceneChoice)
           {
             return y(d.time_stamp);
           }
-           })
-        .attr("width", width + margin.left)
-        .attr("height", y.bandwidth())
-        .attr("fill", function (d){
-          if(d.laughter==="0")
+        })
+        .attr("y2", function(d) {
+          if (d.scene_marker === sceneChoice)
           {
-            return "none";
+            return y(d.time_stamp+1);
           }
-          else
-          {
-            return "grey"
-          }})
-        .attr('fill-opacity', 0.1);
-      /*
-      svg.append('rect')
-        .attr('x', x(0))
-        .attr('y', y(parseTime("06:25")))
-        .attr('width', width + margin.left)
-        .attr('height', y(0.001))
-        .attr('stroke', 'transparent')
-        .attr('fill', 'red')
-        //.attr('fill', '#B6E7F2')
-        .attr('fill-opacity', 0.5);*/
-
+        })
+        .attr("stroke-width", 15)
+        .attr("stroke", dividercolor)
+        .style("stroke-opacity", 1);
+/*
+        svg.append('line')
+        .attr('x1', x("OTHER"))
+        .attr('x2', x("OTHER"))
+        .attr('y1', y(parseTime("00:55")))
+        .attr('y2', y(parseTime("01:05")))
+        .attr('stroke', dividercolor)
+        .attr('stroke-width', width)
+        .attr('stroke-opacity', 0.1);
+*/
 
       // Render the dashed lines
       svg.selectAll()
