@@ -9,7 +9,7 @@ d3.selectAll('h2')
 
 
 // set the dimensions and margins of the graph
-const margin = { top: 50, right: 50, bottom: 50, left: 50 },
+const margin = { top: 70, right: 50, bottom: 50, left: 50 },
   width = 550 - margin.left - margin.right,
   height = 700 - margin.top - margin.bottom;
 
@@ -86,6 +86,14 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
 
   //time parser
   const parseTime = d3.timeParse("%M:%S");
+  //Legend for laughter
+  svgLine.append("circle").attr("cx",width).attr("cy",-400).attr("r", 10).style("fill", "black")
+  svgLine.append("circle").attr("cx",10).attr("cy",160).attr("r", 10).style("fill", laugh2)
+  svgLine.append("circle").attr("cx",10).attr("cy",160).attr("r", 10).style("fill", laugh3)
+  svgLine.append("text").attr("x", 220).attr("y", 130).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
+  svgLine.append("text").attr("x", 220).attr("y", 160).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
+
+  
 
   //Run function once with Scence 1 as default
   update(defaultScene)
@@ -132,8 +140,8 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
         return d.end;
       }
     });
-    //alert(startPoint[0] + endPoint[1])
-
+    
+   
     // Add Y axis
     const y = d3.scaleTime()
       .domain([startPoint[0], endPoint[1]])
@@ -304,6 +312,63 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave)
+
+      //legend for chart
+      
+      svgLine.append("circle")
+      .attr("cx",x("OTHER"))
+      .attr("cy",y(startPoint[0]) - 50)
+      .attr("r", 15)
+      .style("stroke","black")
+      .style("fill", laugh1)
+      .style("fill-opacity",0.8);
+      svgLine.append("circle")
+      .attr("cx",x("ELAINE"))
+      .attr("cy",y(startPoint[0]) - 50)
+      .attr("r", 15)
+      .style("stroke","black")
+      .style("fill", laugh2)
+      .style("fill-opacity",0.8);
+      svgLine.append("circle")
+      .attr("cx",x("KRAMER"))
+      .attr("cy",y(startPoint[0]) - 50)
+      .attr("r", 15)
+      .style("stroke","black")
+      .style("fill", laugh3)
+      .style("fill-opacity",0.8);
+
+      svgLine.append("text")
+      .attr("x", x("OTHER") - 50)
+      .attr("y", y(startPoint[0]) - 50)
+      .attr("alignment-baseline","middle")
+      .attr("text-anchor","end")
+      .text("Laughter Scale")
+      .style("font-size", "15px")
+      .style("font-family", "lato")
+      svgLine.append("text")
+      .attr("x", x("OTHER"))
+      .attr("y", y(startPoint[0]) - 50)
+      .attr("alignment-baseline","middle")
+      .attr("text-anchor","middle")
+      .text("Low")
+      .style("font-size", "10px")
+      .style("font-family", "lato")
+      svgLine.append("text")
+      .attr("x", x("ELAINE"))
+      .attr("y", y(startPoint[0]) - 50)
+      .attr("alignment-baseline","middle")
+      .attr("text-anchor","middle")
+      .text("Med")
+      .style("font-size", "10px")
+      .style("font-family", "lato")
+      svgLine.append("text")
+      .attr("x", x("KRAMER"))
+      .attr("y", y(startPoint[0]) - 50)
+      .attr("alignment-baseline","middle")
+      .attr("text-anchor","middle")
+      .text("High")
+      .style("font-size", "10px")
+      .style("font-family", "lato")
   }
 
   // When the button is changed, run the updateChart function
@@ -314,6 +379,8 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
     // run the updateChart function with this selected option
     update(selectedOption)
   })
+
+   
 
 }
 )

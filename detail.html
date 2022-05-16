@@ -36,7 +36,7 @@
 
 
     // set the dimensions and margins of the graph
-    const margin = { top: 50, right: 50, bottom: 50, left: 50 },
+    const margin = { top: 70, right: 50, bottom: 50, left: 50 },
       width = 550 - margin.left - margin.right,
       height = 700 - margin.top - margin.bottom;
 
@@ -346,6 +346,50 @@
           .on("mouseover", mouseover)
           .on("mousemove", mousemove)
           .on("mouseleave", mouseleave)
+
+          //legend for chart
+          svg.append("circle")
+          .attr("cx",x("GEORGE"))
+          .attr("cy",y(startPoint[0]) - 50)
+          .attr("r", 15)
+          .style("fill", laugh1)
+          .style("fill-opacity",0.8);
+          
+          svg.append("circle")
+          .attr("cx",x("OTHER"))
+          .attr("cy",y(startPoint[0]) - 50)
+          .attr("r", 15)
+          .style("fill", laugh1)
+          .style("fill-opacity",0.8);
+          svg.append("circle")
+          .attr("cx",x("ELAINE"))
+          .attr("cy",y(startPoint[0]) - 50)
+          .attr("r", 15)
+          .style("fill", laugh1)
+          .style("fill-opacity",0.8);
+          svg.append("circle")
+          .attr("cx",x("KRAMER"))
+          .attr("cy",y(startPoint[0]) - 50)
+          .attr("r", 15)
+          .style("fill", laugh1)
+          .style("fill-opacity",0.8);
+
+          svg.append("text")
+          .attr("x", x("JERRY"))
+          .attr("y", y(startPoint[0]) - 50)
+          .attr("alignment-baseline","middle")
+          .attr("text-anchor","end")
+          .text("Laughter Scale")
+          .style("font-size", "15px")
+          .style("font-family", "lato")
+          
+
+
+          //svg.append("circle").attr("cx",x("ELAINE")).attr("cy",height+100).attr("r", 10).style("fill", "black")
+          //svg.append("circle").attr("cx",x("ELAINE")).attr("cy",-height).attr("r", 10).style("fill", "black")
+         // svg.append("text").attr("x", 220).attr("y", 130).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
+         // svg.append("text").attr("x", 220).attr("y", 160).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
+
       }
 
       // When the button is changed, run the updateChart function
