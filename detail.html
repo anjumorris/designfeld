@@ -50,14 +50,19 @@
     var georgeColor = "#F2F53D";
     var otherColor = '#90F5DC';
 
+    var laugh0 = "white"
+    var laugh1 = "#E4E6E7";
+    var laugh2 ="#8E9090";
+    var laugh3 = "#555657";
     
     var dividercolor = '#707070';
     var basegrey = "#505050";
     var undecidedcolor = "E4E6E7";
 
     //Scene selector harcoded now
-    var sceneChoice = "5";
+    var sceneChoice = "2";
     const timeFormatter = "%M:%S";
+    
 
 
 
@@ -71,11 +76,11 @@
 
     // Parse the Data ... All files have been uploaded to my github for easy access and downloading
     // When reading the csv, I must format variables:
-    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfield_data.csv", function (d) {
+    d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_data_timestamp_trial.csv", function (d) {
       return {
         start: d3.timeParse(timeFormatter)(d.start), end: d3.timeParse(timeFormatter)(d.end),
         speaker: d.speaker, scene_marker: d.scene_marker, speech: d.speech,
-        time_stamp: d3.timeParse(timeFormatter)(d.time_stamp), laughter: d.laughter,
+        time_stamp: d3.timeParse(timeFormatter)(d.time_stamp), time_stamp2 : d3.timeParse(timeFormatter)(d.time_stamp2), laughter: d.laughter,
         scene_index: d.scene_index, scene_desc: d.scene_desc
       }
     }).then(function (data) {
@@ -98,7 +103,7 @@
 
 
 
-      //tme parser
+      //time parser
       const parseTime = d3.timeParse("%M:%S");
 
       // X axis 
@@ -126,15 +131,24 @@
         .style("color", basegrey)
         .style("font-family", "lato")
         .style("font-size", 12); // change here for axis marking (year)
+        
+      
+        var startPoint = d3.extent(data, function (d) {
+          if (d.scene_marker === sceneChoice) {
+            return d.start;
+          }
+        });  
 
+        var endPoint = d3.extent(data, function (d) {
+          if (d.scene_marker === sceneChoice) {
+            return d.end;
+          }
+        });
+      //alert(startPoint[0] + endPoint[1])
 
       // Add Y axis
       const y = d3.scaleTime()
-        .domain(d3.extent(data, function (d) {
-          if (d.scene_marker === sceneChoice) {
-            return d.start, d.end;
-          }
-        }))
+        .domain([startPoint[0],endPoint[1]])
         .range([0, height]);
 
       svg.append("g")
@@ -148,17 +162,6 @@
         .style("font-family", "lato")
         .style("font-size", 12); //Change here for y axis font change 
 
-      // Second axis for laughter
-      /*
-      var y_2 = d3.scaleBand()
-        .range([0, height])
-        .padding(0)
-        .domain(data.extent(function (d) {
-          if (d.scene_marker === sceneChoice) {
-            return d.time_stamp;
-          }
-        }))
-        */
 
       //tooltip stuff
       var Tooltip = d3.select("#my_dataviz")
@@ -218,40 +221,62 @@
           })
           .style("opacity", 1)
       }
-
+      
       //laughter scale
 
       svg.selectAll()
         .data(data)
         .enter()
         .append("line")
-        .attr("x1", x("OTHER"))
-        .attr("x2", x("OTHER"))
-        .attr("y1", function (d){
-          if (d.scene_marker === sceneChoice)
+        .attr("x1", function(d) {
+          if(d.time_stamp>=startPoint[0] && d.time_stamp<endPoint[1])
           {
-            return y(d.time_stamp);
+          return x("OTHER");
+          }
+        })
+        .attr("x2", function(d) {
+          if(d.time_stamp>=startPoint[0] && d.time_stamp<endPoint[1])
+          {
+          return x("OTHER");
+          }
+        })
+        .attr("y1", function(d) {
+          if(d.time_stamp>=startPoint[0] && d.time_stamp<endPoint[1])
+          {
+          return y(d.time_stamp);
           }
         })
         .attr("y2", function(d) {
-          if (d.scene_marker === sceneChoice)
+          if(d.time_stamp>=startPoint[0] && d.time_stamp<endPoint[1])
           {
-            return y(d.time_stamp+1);
+          return y(d.time_stamp2);
           }
         })
-        .attr("stroke-width", 15)
-        .attr("stroke", dividercolor)
-        .style("stroke-opacity", 1);
-/*
-        svg.append('line')
-        .attr('x1', x("OTHER"))
-        .attr('x2', x("OTHER"))
-        .attr('y1', y(parseTime("00:55")))
-        .attr('y2', y(parseTime("01:05")))
-        .attr('stroke', dividercolor)
-        .attr('stroke-width', width)
-        .attr('stroke-opacity', 0.1);
-*/
+        .attr("stroke-width", width)
+        .attr("stroke", function(d) {
+          if(d.time_stamp>=startPoint[0] && d.time_stamp<endPoint[1])
+          {
+              if(d.laughter==="0")
+              {
+                return laugh0;
+              }
+              else if(d.laughter==="1")
+              {
+                return laugh1;
+              }
+              else if(d.laughter==="2")
+              {
+                return laugh2;
+              }
+              else if(d.laughter==="3")
+              {
+                return laugh3;
+              }
+              
+          }
+        })
+        .style("stroke-opacity", 0.2);
+
 
       // Render the dashed lines
       svg.selectAll()
@@ -312,219 +337,7 @@
 
 
     })
-      /*
-  // Text Good Opinion
-  svg.append("text") //right side
-    .text("Good Opinion")
-    .attr("x", width)
-    .attr("y", y(0.5))
-    .attr("text-anchor", "end")
-    .attr("font-size", 20)
-    .attr("font-family", "lato")
-    .style('fill', goodcolor);
-
-  svg.append("text") //left side
-    .text("Good Opinion")
-    .attr("x", 30)
-    .attr("y", y(0.5))
-    .attr("font-size", 20)
-    .attr("font-family", "lato")
-    .style('fill', goodcolor);
-
-  // Text Bad opinion
-  svg.append("text") //rightside
-    .text("Bad Opinion")
-    .attr("text-anchor", "end")
-    .attr("x", width)
-    .attr("y", y(-0.5))
-    .attr("font-size", 20)
-    .attr("font-family", "lato")
-    .style('fill', badcolor);
-
-  svg.append("text") //left side
-    .text("Bad Opinion")
-    .attr("x", 30)
-    .attr("y", y(-0.5))
-    .attr("font-size", 20)
-    .attr("font-family", "lato")
-    .style('fill', badcolor);
-
-  // Text Title
-  svg.append("text")
-    .text("Percentage of respondents' opinion votes (Good/Bad) for the years 2017 - 2020")
-    .attr("x", width / 2)
-    .attr("y", -15)
-    .attr("font-size", 15)
-    .attr("font-family", "lato")
-    .attr("text-anchor", "middle")
-    .style('fill', basegrey);
-
-
-  // labels
-  var formatPercent = d3.format(",.0%");
-
-  svg.selectAll("mytext")
-    .data(data)
-    .enter()
-    .append("text")
-    .text(function (d) { return formatPercent(d.Value1); })
-    // 
-    .attr("text-anchor", "middle")
-    .attr("x", function (d) {
-      if (d.Respondent === "Germany") {
-        return x(d.Year) + offset;
-      }
-      else {
-        return x(d.Year) - offset;
-      }
-    })
-    .attr("y", function (d) {
-      if (d.Response === "Good") {
-        return y(d.Value1) - circleradius + labelgap;
-      }
-      else {
-        return (height - y(d.Value1) + circleradius + labelgap);
-      }
-    })
-    .attr("font-size", 13)
-    .attr("font-family", "lato")
-    .style("fill", function (d) {
-      if (d.Response === "Good") {
-        return goodcolor;
-      }
-      else {
-        return badcolor;
-      }
-    });
-
-
-  // Lines for lollipops stems
-  svg.selectAll("myline1")
-    .data(data)
-    .enter()
-    .append("line")
-    .attr("x1", function (d) {
-      if (d.Respondent === "Germany") {
-        return x(d.Year) + offset;
-      }
-      else {
-        return x(d.Year) - offset;
-      }
-    })
-    .attr("x2", function (d) {
-
-      if (d.Respondent === "Germany") {
-        return x(d.Year) + offset;
-      }
-      else {
-        return x(d.Year) - offset;
-      }
-
-    })
-    .attr("y1", function (d) {
-      if (d.Response === "Good") {
-        return (y(d.Value1) + circleradius);
-      }
-      else {
-        return (height - y(d.Value1) - circleradius);
-      }
-    })
-    .attr("y2", y(0))
-    .attr("stroke-width", circleradius * 2 + circlestroke)
-    .attr('stroke-opacity', 0.6)
-    .attr("stroke", function (d) {
-      if (d.Response === "Good") {
-        return goodcolor;
-      }
-      else {
-        return badcolor;
-      }
-    })
-
-
-  // Circles for undecided votes
-  svg.selectAll("circleundecided")
-    .data(data)
-    .join("circle")
-    .attr("cx", function (d) {
-      if (d.Respondent === "Germany") {
-        return x(d.Year) + offset;
-      }
-      else {
-        return x(d.Year) - offset;
-      }
-
-    })
-    .attr("cy", y(0))
-    .attr("r", function (d) { return d.Undecided; })
-    .style("fill", undecidedcolor)
-    .attr("stroke-width", 0)
-
-
-  //images for the countries- US and Germany
-
-  var defs = svg.append('svg:defs');
-  defs.append("svg:pattern")
-    .attr("id", "german-flag")
-    .attr("width", 1)
-    .attr("height", 1)
-    .append("svg:image")
-    .attr("xlink:href", 'https://raw.githubusercontent.com/anjumorris/sample/main/germany.png')
-    .attr("width", circleradius * 2)
-    .attr("height", circleradius * 2);
-
-  defs.append("svg:pattern")
-    .attr("id", "us-flag")
-    .attr("width", 1)
-    .attr("height", 1)
-    .append("svg:image")
-    .attr("xlink:href", 'https://raw.githubusercontent.com/anjumorris/sample/main/united-states.png')
-    .attr("width", circleradius * 2)
-    .attr("height", circleradius * 2);
-
-
-
-  // Circles for lollipop heads
-  svg.selectAll("mycircle")
-    .data(data)
-    .join("circle")
-    .attr("cx", function (d) {
-      if (d.Respondent === "Germany") {
-        return x(d.Year) + offset;
-      }
-      else {
-        return x(d.Year) - offset;
-      }
-
-    })
-    .attr("cy", function (d) {
-      if (d.Response === "Good") {
-        return (y(d.Value1) + circleradius);
-      }
-      else {
-        return (height - y(d.Value1) - circleradius);
-      }
-
-    })
-    .attr("r", circleradius)
-    .style("fill", function (d) {
-      if (d.Respondent === "Germany") {
-        return "url(#german-flag)"
-      }
-      else {
-        return "url(#us-flag)"
-      }
-    })
-    .attr("stroke-width", circlestroke)
-    .attr('stroke-opacity', 1)
-    .attr("stroke", function (d) {
-      if (d.Response === "Good") {
-        return goodcolor;
-      }
-      else {
-        return badcolor;
-      }
-    }) */
+  
 
 
 
