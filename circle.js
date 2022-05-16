@@ -12,7 +12,7 @@ var colors = {
     cEnd = 6.28, // end/top of circle
     svg = d3.select("#speakers");
     grayed = false,
-    selectedScene = 0,
+    selectedScene = {},
     topNegativeMargin = -50;
     parse = d3.timeParse('%M:%S'),
     t = d3.scaleTime()
@@ -68,6 +68,13 @@ var mouseover = function (i, scene) {
         d3.selectAll('.scene_' + scene.scene)
             .style('filter', 'saturate(1)')
             .attr('opacity', 1)
+        d3.selectAll('.laugh')
+            .filter(function(d) {
+                var pF = parse(d.time_stamp);
+                return pF > parse(scene.start) && pF < parse(scene.end);
+            })
+            .style('filter', 'saturate(1)')
+            .attr('opacity', 1)
     }
 }
 
@@ -82,7 +89,15 @@ var mouseleave = function (i, scene) {
         .attr('opacity', 0)
 
     if (grayed) {
-        d3.selectAll('.scene_' + scene.scene + ':not(.scene_' + selectedScene + ')')
+        d3.selectAll('.scene_' + scene.scene + ':not(.scene_' + selectedScene.scene + ')')
+            .style('filter', 'saturate(0)')
+            .attr('opacity', 0.5)
+        d3.selectAll('.laugh')
+            .filter(function(d) {
+                var pF = parse(d.time_stamp);
+                return pF > parse(scene.start) && pF < parse(scene.end)
+                    && (pF < parse(selectedScene.start) || pF > parse(selectedScene.end))
+            })
             .style('filter', 'saturate(0)')
             .attr('opacity', 0.5)
     }
@@ -97,9 +112,19 @@ var wheelclick = function(i, scene) {
     seinfeld.play();
 
     grayed = true;
-    selectedScene = scene.scene;
+    selectedScene = scene;
 
     d3.selectAll('.speech:not(.scene_' + scene.scene + ')')
+        .transition()
+        .duration(600)
+        .style('filter', 'saturate(0)')
+        .attr('opacity', 0.5)
+
+    d3.selectAll('.laugh')
+        .filter(function(d) {
+            var pF = parse(d.time_stamp);
+            return pF < parse(scene.start) || pF > parse(scene.end);
+        })
         .transition()
         .duration(600)
         .style('filter', 'saturate(0)')
@@ -334,10 +359,13 @@ d3.csv("/speakers.csv", function (d) {
 // CLICKING OFF THE WHEEL
 d3.select('body').on('click', function(e) {
     triggersEvent = Array.from(e.target.classList).some(function(toCheck) {
-        return ['speech', 'scene', 'scene_divider'].includes(toCheck);
+        return ['speech', 'scene', 'scene_divider', 'laugh'].includes(toCheck);
     });
     if (!triggersEvent && grayed) {
         d3.selectAll('.speech')
+            .style('filter', 'saturate(1)')
+            .attr('opacity', 1)
+        d3.selectAll('.laugh')
             .style('filter', 'saturate(1)')
             .attr('opacity', 1)
         grayed = false;
@@ -366,7 +394,8 @@ d3.csv("/laughs.csv").then(function(laughData) {
             })
         )
         .attr('id', function(d) {
-            return 'laugh_' + d.time_index; // id="scene_2"
+            var split = d.time_stamp.split(':');
+            return 't' + split[0] + "t" + split[1]; // "t17m53s"
         })
         .attr('class', 'laugh')
         .attr('fill', '#FFCC33')
