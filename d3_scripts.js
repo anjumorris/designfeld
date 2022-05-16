@@ -18,16 +18,16 @@ const margin = { top: 50, right: 50, bottom: 50, left: 50 },
 
 //Color Palette
 
-var jerryColor = '#005D90';
-var elaineColor = '#F081BE';
-var kramerColor = '#90F5DC';//'#EB711F';
-var georgeColor = '#EB711F';//"#F2F53D";
-var otherColor = "E4E6E7"; //'#90F5DC';
+var jerryColor = '#71ABD1';
+var elaineColor = '#FA1171';
+var kramerColor = '#6332AD';//'#EB711F';
+var georgeColor = '#FC7D0B';//"#F2F53D";
+var otherColor = "#F2EE00"; //'#90F5DC';
 
 var laugh0 = "white"
-var laugh1 = "#FFCC33";
-var laugh2 = "#FFDF80";
-var laugh3 = "#FFF2CC";
+var laugh1 = "#EEEEEE";
+var laugh2 = "#B3B3B3";
+var laugh3 = "#777777";
 
 var dividercolor = '#707070';
 var basegrey = "#505050";
@@ -198,7 +198,7 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
             return otherColor;
           }
         })
-        .style("opacity", 1)
+        .style("opacity", 0.5)
     }
 
     //laughter scale
@@ -227,23 +227,7 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
           return y(d.time_stamp2);
         }
       })
-      .attr("stroke-width", function (d) {
-        if (d.time_stamp >= startPoint[0] && d.time_stamp < endPoint[1]) {
-          if (d.laughter === "0") {
-            return width;
-          }
-          else if (d.laughter === "1") {
-            return width;
-          }
-          else if (d.laughter === "2") {
-            return width;
-          }
-          else if (d.laughter === "3") {
-            return width;
-          }
-
-        }
-      })
+      .attr("stroke-width", width)
       .attr("stroke", function (d) {
         if (d.time_stamp >= startPoint[0] && d.time_stamp < endPoint[1]) {
           if (d.laughter === "0") {
@@ -261,7 +245,7 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
 
         }
       })
-      .style("stroke-opacity", 0.4);
+      .style("stroke-opacity", 0.8);
 
 
     // Render the dashed lines

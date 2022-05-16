@@ -1,10 +1,10 @@
 // ARCS
 var colors = {
-        jerry: '#005D90',
-        elaine: '#F081BE',
-        kramer: '#EB711F',
-        george: "#F2F53D",
-        other: '#90F5DC'
+        jerry: '#71ABD1',
+        elaine: '#FA1171',
+        kramer: '#6332AD',
+        george: '#FC7D0B',
+        other: "#F2EE00"
     },
     timeFormatter = "%M:%S",
     epStartTime = '00:00', // start of episode
@@ -401,5 +401,6 @@ d3.csv("/laughs.csv").then(function(laughData) {
             return 't' + split[0] + "t" + split[1]; // "t17m53s"
         })
         .attr('class', 'laugh')
-        .attr('fill', '#FFCC33')
+        .attr('fill', "#777777")
+        .style("fill-opacity", 0.8);
 });
