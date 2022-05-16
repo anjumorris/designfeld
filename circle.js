@@ -321,6 +321,7 @@ d3.csv("/speakers.csv", function (d) {
         .attr('width', 80)
         .attr('height', 80)
         .attr('src', function(d) { return '/avatars/' + d.toLowerCase() + '2.PNG'; })
+        .style('border-color', function(d) { return colors[d.toLowerCase()]; })
     
     function change(region) {
         svg.selectAll('.' + region.target.value)
