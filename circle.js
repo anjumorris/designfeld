@@ -27,9 +27,6 @@ var mouseover = function (i, scene) {
       return;
     }
 
-    seinfeld.currentTime(sceneToTimestamp.get(parseInt(scene.scene)));
-    seinfeld.play();
-
     d3.select(this)
         .transition()
         .duration(300)
@@ -94,6 +91,9 @@ var wheelclick = function(i, scene) {
     if (typeof scene === 'undefined') {
         return;
     }
+
+    seinfeld.currentTime(sceneToTimestamp.get(parseInt(scene.scene)));
+    seinfeld.play();
 
     grayed = true;
     selectedScene = scene.scene;
@@ -422,6 +422,7 @@ function cloneObj(obj) {
 }
 })
 
+// CLICKING OFF THE WHEEL
 d3.select('body').on('click', function(e) {
     triggersEvent = Array.from(e.target.classList).some(function(toCheck) {
         return ['speech', 'scene', 'scene_divider'].includes(toCheck);
@@ -431,6 +432,7 @@ d3.select('body').on('click', function(e) {
             .style('filter', 'saturate(1)')
             .attr('opacity', 1)
         grayed = false;
+        seinfeld.pause();
     }
 });
 
