@@ -339,6 +339,14 @@ d3.csv("/speakers.csv", function (d) {
         .attr('height', 80)
         .attr('src', function(d) { return '/avatars/' + d.toLowerCase() + '2.PNG'; })
         .style('border-color', function(d) { return colors[d.toLowerCase()]; })
+
+    svg.append('image')
+        .attr('id', 'laugh_ring_legend')
+        .attr('x', 0)
+        .attr('y', 70 + topNegativeMargin)
+        .attr('width', 150)
+        .attr('height', 150)
+        .attr('href', '/laugh_ring_legend.png')
     
     function change(region) {
         svg.selectAll('.' + region.target.value)
