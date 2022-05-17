@@ -60,7 +60,7 @@ const svgLine = d3.select("#svgLine")
 
 // Parse the Data ... All files have been uploaded to my github for easy access and downloading
 // When reading the csv, I must format variables:
-d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_data_timestamp_trial.csv", function (d) {
+d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_data_final.csv", function (d) {
   return {
     start: d3.timeParse(timeFormatter)(d.start), end: d3.timeParse(timeFormatter)(d.end),
     speaker: d.speaker, scene_marker: d.scene_marker, speech: d.speech,
