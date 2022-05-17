@@ -140,7 +140,7 @@ var wheelclick = function(i, scene) {
 
 svg.attr("width", 1000).attr("height", 1100);
 
-d3.csv("/scenes.csv").then(function(sceneData) {
+d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/scenes.csv").then(function(sceneData) {
     svg.selectAll()
         .data(sceneData)
         .enter()
@@ -262,7 +262,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
 });
 
 // Use the speakers.csv for speakers-only data
-d3.csv("/speakers.csv", function (d) {
+d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/speakers.csv", function (d) {
     return {
         start: d.start,
         end: d.end,
@@ -382,7 +382,7 @@ d3.select('body').on('click', function(e) {
 });
 
 // LAUGHS
-d3.csv("/laughs.csv").then(function(laughData) {
+d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/laughs.csv").then(function(laughData) {
     svg.selectAll()
         .data(laughData)
         .enter()
@@ -411,7 +411,7 @@ d3.csv("/laughs.csv").then(function(laughData) {
 });
 
 // BAR CHART
-d3.csv('/summaryStat.csv').then(function(summaryData) {
+d3.csv('https://raw.githubusercontent.com/UlyssesLin/designfeld/master/summaryStat.csv').then(function(summaryData) {
     var height = 750;
     var barChart = svg.append('g')
         .attr('id', 'summary_area')
