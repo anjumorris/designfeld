@@ -4,7 +4,7 @@ var colors = {
         elaine: '#FA1171',
         kramer: '#6332AD',
         george: '#FC7D0B',
-        other: "#F2EE00"
+        other: '#F2EE00'
     },
     timeFormatter = "%M:%S",
     epStartTime = '00:00', // start of episode
@@ -64,7 +64,11 @@ var mouseover = function (i, scene) {
         .attr('opacity', 1)
 
     svg.select('#scene_thumb')
+        .attr('opacity', 1)
         .attr('xlink:href', '/scene_thumbs/scene_' + scene.scene + '.png')
+
+    svg.select('#summary_area')
+        .attr('opacity', 0)
 
     if (grayed) {
         d3.selectAll('.scene_' + scene.scene)
@@ -175,14 +179,7 @@ d3.csv("/scenes.csv").then(function(sceneData) {
 
     svg.append("g")
         .attr('id', 'scene_intro')
-        // .call(g => g.append("rect")
-        // .attr('class', 'lbox')
-        // .attr("x", 100)
-        // .attr("y", 40)
-        // .attr('rx', 3)
-        // .attr('width', '20')
-        // .attr('height', '20')
-        // .style("fill", "#87a1ff"))
+        .attr('opacity', 1)
         .call(g => g.append("text")
         .text('Select a scene')
         .style("font-family", "lato")
@@ -209,14 +206,6 @@ d3.csv("/scenes.csv").then(function(sceneData) {
     svg.append("g")
         .attr('id', 'scene_metadata')
         .attr('opacity', 0)
-        // .call(g => g.append("rect")
-        // .attr('class', 'lbox')
-        // .attr("x", 100)
-        // .attr("y", 50)
-        // .attr('rx', 3)
-        // .attr('width', '20')
-        // .attr('height', '20')
-        // .style("fill", "#87a1ff"))
         .call(g => g.append("text")
         .text('Scene ')
         .style("font-family", "lato")
@@ -262,9 +251,9 @@ d3.csv("/scenes.csv").then(function(sceneData) {
         .style("fill", "black"))
 
     svg.append("g")
-        .attr('opacity', 1)
         .call(g => g.append('image')
         .attr('id', 'scene_thumb')
+        .attr('opacity', 0)
         .attr('x', 350)
         .attr('y', 600 + topNegativeMargin)
         .attr('width', 320)
@@ -371,6 +360,14 @@ d3.select('body').on('click', function(e) {
         d3.selectAll('.laugh')
             .style('filter', 'saturate(1)')
             .attr('opacity', 1)
+        svg.select('#summary_area')
+            .attr('opacity', 1)
+        svg.select('#scene_intro')
+            .attr('opacity', 1)
+        svg.select('#scene_metadata')
+            .attr('opacity', 0)
+        svg.select('#scene_thumb')
+            .attr('opacity', 0)
         grayed = false;
         seinfeld.pause();
     }
@@ -404,3 +401,65 @@ d3.csv("/laughs.csv").then(function(laughData) {
         .attr('fill', "#777777")
         .style("fill-opacity", 0.8);
 });
+
+// BAR CHART
+d3.csv('/summaryStat.csv').then(function(summaryData) {
+    var height = 750;
+    var barChart = svg.append('g')
+        .attr('id', 'summary_area')
+        .attr('opacity', 1);
+    // X axis
+    var x = d3.scaleBand()
+        .range([ 0, 200 ])
+        .domain(summaryData.map(function(d) { return d.speaker_summary; }))
+        .padding(0.2);
+    barChart.append('g')
+        .attr('transform', 'translate(420,' + height + ')')
+        .call(d3.axisBottom(x))
+        .selectAll('text')
+        .attr('transform', 'translate(-10,0)rotate(-45)')
+        .style('text-anchor', 'end');
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+        .domain([0, 30])
+        .range([ height, height - 160]);
+    barChart.append('g')
+        .attr('transform', 'translate(420,' + 0 + ')')
+        .call(d3.axisLeft(y));
+
+    // Bars
+    barChart.selectAll()
+        .data(summaryData)
+        .enter()
+        .append('rect')
+        .attr('transform', 'translate(420,' + 0 + ')')
+        .attr('class', 'summary_bar')
+        .attr('x', function(d) { return x(d.speaker_summary); })
+        .attr('y', function(d) { return y(d.not_percentage); })
+        .attr('width', x.bandwidth())
+        .attr('height', function(d) { return height - y(d.not_percentage); })
+        .attr('fill', function(d) { return colors[d.speaker_summary.toLowerCase()]; })
+        .attr('opacity', 1)
+    barChart.selectAll()
+        .data(summaryData)
+        .enter()
+        .append('text')
+        .attr('id', function(d) { return d.speaker_summary.toLowerCase() + '_bar'; })
+        .text(function(d) { return parseInt(d.percentage) + '%'; })
+        .attr('transform', 'translate(420,' + 0 + ')')
+        .attr('x', function(d) { return x(d.speaker_summary) + 4; })
+        .attr('y', function(d) { return y(d.not_percentage) + 20; })
+        .attr('font-size', '12px')
+        .attr('fill', function(d) { return d.speaker_summary == 'OTHER' ? 'black' : 'white'; })
+    barChart.append('g')
+        .attr('id', 'summary_bars_description')
+        .call(g => g.append('text')
+        .text('Percentage of Spoken Time for Entire Episode')
+        .style('font-family', 'lato')
+        .attr('id', 'scene_intro_content')
+        .attr('font-size', '16')
+        .attr('x', 350)
+        .attr('y', 870 + topNegativeMargin)
+        .style('fill', 'black'))
+})
