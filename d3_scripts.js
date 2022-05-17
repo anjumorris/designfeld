@@ -100,6 +100,8 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/seinfeld_
 
   // A function that update the chart
   function update(sceneChoice) {
+    d3.select('#scene_title')
+      .text('Scene ' + sceneChoice)
     //alert(sceneChoice);
     // X axis 
     svgLine.selectAll("*").remove();

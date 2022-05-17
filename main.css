@@ -7,6 +7,15 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    margin-left: 48px;
+    margin-bottom: 24px;
+}
+
+#right_sidebar {
+    display: none;
+}
+
 #character_picker {
     margin-top: 20px;
     display: flex;

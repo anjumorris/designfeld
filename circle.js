@@ -65,7 +65,7 @@ var mouseover = function (i, scene) {
 
     svg.select('#scene_thumb')
         .attr('opacity', 1)
-        .attr('xlink:href', '/scene_thumbs/scene_' + scene.scene + '.png')
+        .attr('xlink:href', 'https://raw.githubusercontent.com/UlyssesLin/designfeld/master/scene_thumbs/scene_' + scene.scene + '.png')
 
     svg.select('#summary_area')
         .attr('opacity', 0)
@@ -136,6 +136,9 @@ var wheelclick = function(i, scene) {
         .duration(600)
         .style('filter', 'saturate(0)')
         .attr('opacity', 0.5)
+    
+    d3.select('#right_sidebar')
+        .style('display', 'block')
 }
 
 svg.attr("width", 1000).attr("height", 1100);
@@ -258,7 +261,7 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/scenes.cs
         .attr('y', 600 + topNegativeMargin)
         .attr('width', 320)
         .attr('height', 180)
-        .attr('xlink:href', '/scene_thumbs/scene_1.png'))
+        .attr('xlink:href', 'https://raw.githubusercontent.com/UlyssesLin/designfeld/master/scene_thumbs/scene_1.png'))
 });
 
 // Use the speakers.csv for speakers-only data
@@ -337,7 +340,7 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/speakers.
         .attr('y', 600 + topNegativeMargin)
         .attr('width', 80)
         .attr('height', 80)
-        .attr('src', function(d) { return '/avatars/' + d.toLowerCase() + '2.PNG'; })
+        .attr('src', function(d) { return 'https://raw.githubusercontent.com/UlyssesLin/designfeld/master/avatars/' + d.toLowerCase() + '2.PNG'; })
         .style('border-color', function(d) { return colors[d.toLowerCase()]; })
 
     svg.append('image')
@@ -346,7 +349,7 @@ d3.csv("https://raw.githubusercontent.com/UlyssesLin/designfeld/master/speakers.
         .attr('y', 70 + topNegativeMargin)
         .attr('width', 150)
         .attr('height', 150)
-        .attr('href', '/laugh_ring_legend.png')
+        .attr('href', 'https://raw.githubusercontent.com/UlyssesLin/designfeld/master/laugh_ring_legend.png')
     
     function change(region) {
         svg.selectAll('.' + region.target.value)
