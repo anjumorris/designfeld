@@ -13,7 +13,7 @@ We visualized and analyzed the Seinfeld Episode – The Soup Nazi (s7e6)  with a
 - Among the four main characters who gets the most laughs?
 - It is difficult to determine if certain character is responsible for a specific laugh Instead, we can see which characters were present when a laugh sequence happened.
 
-To view our detailed insights please check out the presentation 
+To view our detailed insights please check out the presentation https://github.com/anjumorris/designfeld/blob/master/Designfeld_PPT.pdf
 
 ### Tools Used
 - Adobe Color
