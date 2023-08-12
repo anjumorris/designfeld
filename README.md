@@ -27,3 +27,4 @@ To view our detailed insights please check out the presentation https://github.c
 
 ### Demonstration
 To see the visualization in action just download the repository and open the index.html file.
+![](Designfeld_sreenshot.png)
